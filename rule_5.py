@@ -6,6 +6,45 @@ Could not fetch URL https://pypi.org/simple/ml-collections/: There was a problem
 ERROR: Could not find a version that satisfies the requirement ml-collections (from versions: none)
 ERROR: No matching distribution found for ml-collections
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org ml-collections
+Traceback (most recent call last):
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/vit/train.py", line 334, in <module>
+    main()
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/vit/train.py", line 330, in main
+    train(args, model)
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/vit/train.py", line 199, in train
+    for step, batch in enumerate(epoch_iterator):
+  File "/root/miniconda3/lib/python3.12/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/root/miniconda3/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1344, in _next_data
+    return self._process_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1370, in _process_data
+    data.reraise()
+  File "/root/miniconda3/lib/python3.12/site-packages/torch/_utils.py", line 706, in reraise
+    raise exception
+PIL.UnidentifiedImageError: Caught UnidentifiedImageError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 309, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torchvision/datasets/folder.py", line 245, in __getitem__
+    sample = self.loader(path)
+             ^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torchvision/datasets/folder.py", line 284, in default_loader
+    return pil_loader(path)
+           ^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torchvision/datasets/folder.py", line 263, in pil_loader
+    img = Image.open(f)
+          ^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/PIL/Image.py", line 3532, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BufferedReader name='/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/vit/dataset/huawei_ad/objective_database/train/真实感3/FALSE/IMG_0218.JPG'>
 
 import os
 # os.environ['CUDA_VISIBLE_DEVICES'] = '2'
