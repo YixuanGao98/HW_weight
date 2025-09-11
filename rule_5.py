@@ -1,4 +1,82 @@
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/urllib/request.py", line 1344, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/root/miniconda3/lib/python3.12/http/client.py", line 1336, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/root/miniconda3/lib/python3.12/http/client.py", line 1382, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/root/miniconda3/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/root/miniconda3/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/root/miniconda3/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/root/miniconda3/lib/python3.12/http/client.py", line 1477, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/ssl.py", line 1042, in _create
+    self.do_handshake()
+  File "/root/miniconda3/lib/python3.12/ssl.py", line 1320, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/vit/all_rule_main.py", line 336, in <module>
+    main(
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/vit/all_rule_main.py", line 262, in main
+    pred = bool(fn(img, running_idx))
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/vit/all_rule_main.py", line 184, in <lambda>
+    "fn": lambda img, idx=None: bool(is_bad_quality(img,q_model))
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/vit/rule_5.py", line 69, in is_bad_quality
+    image_quality_qualiclip = calculate_image_quality_qualiclip(img_np)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/vit/rule_5.py", line 52, in calculate_image_quality_qualiclip
+    iqa_model = create_metric(
+                ^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/pyiqa/api_helpers.py", line 15, in create_metric
+    metric = InferenceModel(metric_name, as_loss=as_loss, device=device, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/pyiqa/models/inference_model.py", line 66, in __init__
+    self.net = build_network(net_opts)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/pyiqa/archs/__init__.py", line 157, in build_network
+    net = ARCH_REGISTRY.get(network_type)(**opt)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/pyiqa/archs/qualiclip_arch.py", line 184, in __init__
+    self.clip_model = [load(backbone, 'cpu')]  # avoid saving clip weights
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/pyiqa/archs/clip_model.py", line 108, in load
+    model_path = _download(
+                 ^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/pyiqa/archs/clip_model.py", line 51, in _download
+    with urllib.request.urlopen(url) as source, open(download_target, 'wb') as output:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/urllib/request.py", line 1392, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/urllib/request.py", line 1347, in do_open
+    raise URLError(err)
 urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)>
+
 import os
 # os.environ['CUDA_VISIBLE_DEVICES'] = '2'
 import numpy as np
