@@ -67,6 +67,38 @@ if __name__ == "__main__":
     image_root_dir = "清晰度"  # 文件夹结构应为: 清晰度/True/... 和 清晰度/False/...
     generate_image_quality_dataset(image_root_dir)
 
+
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/Q-Align-main/q_align/train/train_mem.py", line 34, in <module>
+    from q_align.train.mplug_owl2_trainer import MPLUGOwl2Trainer
+ModuleNotFoundError: No module named 'q_align'
+Traceback (most recent call last):
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/Q-Align-main/q_align/train/train_mem.py", line 34, in <module>
+    from q_align.train.mplug_owl2_trainer import MPLUGOwl2Trainer
+ModuleNotFoundError: No module named 'q_align'
+Traceback (most recent call last):
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/Q-Align-main/q_align/train/train_mem.py", line 34, in <module>
+    from q_align.train.mplug_owl2_trainer import MPLUGOwl2Trainer
+ModuleNotFoundError: No module named 'q_align'
+Traceback (most recent call last):
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/Q-Align-main/q_align/train/train_mem.py", line 34, in <module>
+    from q_align.train.mplug_owl2_trainer import MPLUGOwl2Trainer
+ModuleNotFoundError: No module named 'q_align'
+Traceback (most recent call last):
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/Q-Align-main/q_align/train/train_mem.py", line 34, in <module>
+    from q_align.train.mplug_owl2_trainer import MPLUGOwl2Trainer
+ModuleNotFoundError: No module named 'q_align'
+Traceback (most recent call last):
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/Q-Align-main/q_align/train/train_mem.py", line 34, in <module>
+    from q_align.train.mplug_owl2_trainer import MPLUGOwl2Trainer
+ModuleNotFoundError: No module named 'q_align'
+Traceback (most recent call last):
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/Q-Align-main/q_align/train/train_mem.py", line 34, in <module>
+    from q_align.train.mplug_owl2_trainer import MPLUGOwl2Trainer
+ModuleNotFoundError: No module named 'q_align'
+Traceback (most recent call last):
+  File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/Q-Align-main/q_align/train/train_mem.py", line 34, in <module>
+    from q_align.train.mplug_owl2_trainer import MPLUGOwl2Trainer
+ModuleNotFoundError: No module named 'q_align'
 import os
 # os.environ['CUDA_VISIBLE_DEVICES'] = '2'
 import numpy as np
