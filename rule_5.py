@@ -1,3 +1,6 @@
+
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 Traceback (most recent call last):
   File "/root/miniconda3/lib/python3.12/urllib/request.py", line 1344, in do_open
     h.request(req.get_method(), req.selector, req.data, headers,
