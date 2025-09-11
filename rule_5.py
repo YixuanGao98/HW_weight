@@ -5,7 +5,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 Could not fetch URL https://pypi.org/simple/ml-collections/: There was a problem confirming the ssl certificate: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /simple/ml-collections/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))) - skipping
 ERROR: Could not find a version that satisfies the requirement ml-collections (from versions: none)
 ERROR: No matching distribution found for ml-collections
-
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org ml-collections
 
 import os
 # os.environ['CUDA_VISIBLE_DEVICES'] = '2'
