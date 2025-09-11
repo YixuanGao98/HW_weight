@@ -7,7 +7,65 @@ ERROR: Could not find a version that satisfies the requirement ml-collections (f
 ERROR: No matching distribution found for ml-collections
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org ml-collections
 wget --no-check-certificate https://huggingface.co/GYX98/HW_weight/resolve/main/hw_houqi3-class2-3e-2-9_10-acc_checkpoint.bin
+import os
+import json
+from glob import glob
 
+def generate_image_quality_dataset(root_dir, output_json="image_quality_dataset.json"):
+    dataset = []
+    
+    # 遍历 True 和 False 子文件夹
+    for label in ["True", "False"]:
+        label_dir = os.path.join(root_dir, label)
+        if not os.path.exists(label_dir):
+            continue
+        
+        # 获取所有图像文件
+        image_files = glob(os.path.join(label_dir, "*.[bB][mM][pP]"))  # 支持 .bmp 和 .BMP
+        image_files.extend(glob(os.path.join(label_dir, "*.[jJ][pP][gG]")))  # 支持 .jpg 和 .JPG
+        image_files.extend(glob(os.path.join(label_dir, "*.[jJ][pP][eE][gG]")))  # 支持 .jpeg 和 .JPEG
+        image_files.extend(glob(os.path.join(label_dir, "*.[pP][nN][gG]")))  # 支持 .png 和 .PNG
+        
+        for image_path in image_files:
+            # 获取相对路径
+            rel_path = os.path.relpath(image_path, root_dir).replace("\\", "/")
+            
+            # 根据文件夹设置评价和分数
+            if label == "True":
+                quality_assessment = "The quality of the image is bad."
+                gt_score = 3
+            else:
+                quality_assessment = "The quality of the image is excellent."
+                gt_score = 5
+            
+            # 添加到数据集
+            dataset.append({
+                "id": f"{rel_path}->{gt_score}",
+                "image": rel_path,
+                "conversations": [
+                    {
+                        "from": "human",
+                        "value": "How would you rate the quality of this image?\n<|image|>"
+                    },
+                    {
+                        "from": "gpt",
+                        "value": quality_assessment
+                    }
+                ],
+                "gt_score": gt_score
+            })
+    
+    # 保存为 JSON 文件
+    with open(output_json, "w", encoding="utf-8") as f:
+        json.dump(dataset, f, indent=4, ensure_ascii=False)
+    
+    print(f"Dataset generated with {len(dataset)} entries. Saved to {output_json}")
+
+# 使用示例
+if __name__ == "__main__":
+    # 替换为您的图像文件夹路径
+    image_root_dir = "清晰度"  # 文件夹结构应为: 清晰度/True/... 和 清晰度/False/...
+    generate_image_quality_dataset(image_root_dir)
 
 import os
 # os.environ['CUDA_VISIBLE_DEVICES'] = '2'
