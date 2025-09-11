@@ -99,6 +99,8 @@ Traceback (most recent call last):
   File "/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/Q-Align-main/q_align/train/train_mem.py", line 34, in <module>
     from q_align.train.mplug_owl2_trainer import MPLUGOwl2Trainer
 ModuleNotFoundError: No module named 'q_align'
+
+export PYTHONPATH="/home/wsw/jikaiyuan/code/code_hw/realistic_postprocess/Q-Align-main:$PYTHONPATH"
 import os
 # os.environ['CUDA_VISIBLE_DEVICES'] = '2'
 import numpy as np
