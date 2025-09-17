@@ -321,5 +321,6 @@ error: failed-wheel-build-for-install
 
 × Failed to build installable wheels for some pyproject.toml based projects
 ╰─> flash-attn
-pip install flash-attn -i https://mirrors.aliyun.com/pypi/simple/
+pip install flash-attn --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host=files.pythonhosted.org
+
 
