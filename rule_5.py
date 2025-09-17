@@ -198,4 +198,126 @@ if __name__ == "__main__":
 # Accuracy: 0.9200 | Precision: 0.9200 | Recall: 0.9200 | F1: 0.9200
 
 
-ImportError: FlashAttention2 has been toggled on, but it cannot be used due to the following error: the package flash_attn seems to be not installed. Please refer to the documentation of https://huggingface.co/docs/transformers/perf_infer_gpu_one#flashattention-2 to install Flash Attention 2
+  [70/73] /usr/local/cuda/bin/nvcc  -I/tmp/pip-install-qhm5vj1y/flash-attn_98b1d7f138bc42bbb1d23fe62fcd949d/csrc/flash_attn -I/tmp/pip-install-qhm5vj1y/flash-attn_98b1d7f138bc42bbb1d23fe62fcd949d/csrc/flash_attn/src -I/tmp/pip-install-qhm5vj1y/flash-attn_98b1d7f138bc42bbb1d23fe62fcd949d/csrc/cutlass/include -I/root/miniconda3/envs/q-align/lib/python3.10/site-packages/torch/include -I/root/miniconda3/envs/q-align/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/root/miniconda3/envs/q-align/lib/python3.10/site-packages/torch/include/TH -I/root/miniconda3/envs/q-align/lib/python3.10/site-packages/torch/include/THC -I/usr/local/cuda/include -I/root/miniconda3/envs/q-align/include/python3.10 -c -c /tmp/pip-install-qhm5vj1y/flash-attn_98b1d7f138bc42bbb1d23fe62fcd949d/csrc/flash_attn/src/flash_fwd_split_hdim64_fp16_sm80.cu -o /tmp/pip-install-qhm5vj1y/flash-attn_98b1d7f138bc42bbb1d23fe62fcd949d/build/temp.linux-x86_64-cpython-310/csrc/flash_attn/src/flash_fwd_split_hdim64_fp16_sm80.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math -gencode arch=compute_80,code=sm_80 -gencode arch=compute_90,code=sm_90 --threads 4 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=flash_attn_2_cuda -D_GLIBCXX_USE_CXX11_ABI=0
+      ninja: build stopped: subcommand failed.
+      Traceback (most recent call last):
+        File "/root/miniconda3/envs/q-align/lib/python3.10/urllib/request.py", line 1348, in do_open
+          h.request(req.get_method(), req.selector, req.data, headers,
+        File "/root/miniconda3/envs/q-align/lib/python3.10/http/client.py", line 1283, in request
+          self._send_request(method, url, body, headers, encode_chunked)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/http/client.py", line 1329, in _send_request
+          self.endheaders(body, encode_chunked=encode_chunked)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/http/client.py", line 1278, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/http/client.py", line 1038, in _send_output
+          self.send(msg)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/http/client.py", line 976, in send
+          self.connect()
+        File "/root/miniconda3/envs/q-align/lib/python3.10/http/client.py", line 1455, in connect
+          self.sock = self._context.wrap_socket(self.sock,
+        File "/root/miniconda3/envs/q-align/lib/python3.10/ssl.py", line 513, in wrap_socket
+          return self.sslsocket_class._create(
+        File "/root/miniconda3/envs/q-align/lib/python3.10/ssl.py", line 1104, in _create
+          self.do_handshake()
+        File "/root/miniconda3/envs/q-align/lib/python3.10/ssl.py", line 1375, in do_handshake
+          self._sslobj.do_handshake()
+      ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1017)
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "/tmp/pip-install-qhm5vj1y/flash-attn_98b1d7f138bc42bbb1d23fe62fcd949d/setup.py", line 486, in run
+          urllib.request.urlretrieve(wheel_url, wheel_filename)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/urllib/request.py", line 241, in urlretrieve
+          with contextlib.closing(urlopen(url, data)) as fp:
+        File "/root/miniconda3/envs/q-align/lib/python3.10/urllib/request.py", line 216, in urlopen
+          return opener.open(url, data, timeout)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/urllib/request.py", line 519, in open
+          response = self._open(req, data)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/urllib/request.py", line 536, in _open
+          result = self._call_chain(self.handle_open, protocol, protocol +
+        File "/root/miniconda3/envs/q-align/lib/python3.10/urllib/request.py", line 496, in _call_chain
+          result = func(*args)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/urllib/request.py", line 1391, in https_open
+          return self.do_open(http.client.HTTPSConnection, req,
+        File "/root/miniconda3/envs/q-align/lib/python3.10/urllib/request.py", line 1351, in do_open
+          raise URLError(err)
+      urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1017)>
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2100, in _run_ninja_build
+          subprocess.run(
+        File "/root/miniconda3/envs/q-align/lib/python3.10/subprocess.py", line 526, in run
+          raise CalledProcessError(retcode, process.args,
+      subprocess.CalledProcessError: Command '['ninja', '-v', '-j', '70']' returned non-zero exit status 1.
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "<string>", line 2, in <module>
+        File "<pip-setuptools-caller>", line 35, in <module>
+        File "/tmp/pip-install-qhm5vj1y/flash-attn_98b1d7f138bc42bbb1d23fe62fcd949d/setup.py", line 526, in <module>
+          setup(
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/__init__.py", line 117, in setup
+          return distutils.core.setup(**attrs)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 186, in setup
+          return run_commands(dist)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 202, in run_commands
+          dist.run_commands()
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1002, in run_commands
+          self.run_command(cmd)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/dist.py", line 1104, in run_command
+          super().run_command(command)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1021, in run_command
+          cmd_obj.run()
+        File "/tmp/pip-install-qhm5vj1y/flash-attn_98b1d7f138bc42bbb1d23fe62fcd949d/setup.py", line 503, in run
+          super().run()
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/command/bdist_wheel.py", line 370, in run
+          self.run_command("build")
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/cmd.py", line 357, in run_command
+          self.distribution.run_command(command)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/dist.py", line 1104, in run_command
+          super().run_command(command)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1021, in run_command
+          cmd_obj.run()
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/command/build.py", line 135, in run
+          self.run_command(cmd_name)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/cmd.py", line 357, in run_command
+          self.distribution.run_command(command)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/dist.py", line 1104, in run_command
+          super().run_command(command)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1021, in run_command
+          cmd_obj.run()
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/command/build_ext.py", line 99, in run
+          _build_ext.run(self)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 368, in run
+          self.build_extensions()
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 873, in build_extensions
+          build_ext.build_extensions(self)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 484, in build_extensions
+          self._build_extensions_serial()
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 510, in _build_extensions_serial
+          self.build_extension(ext)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/command/build_ext.py", line 264, in build_extension
+          _build_ext.build_extension(self, ext)
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 565, in build_extension
+          objects = self.compiler.compile(
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 686, in unix_wrap_ninja_compile
+          _write_ninja_file_and_compile_objects(
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 1774, in _write_ninja_file_and_compile_objects
+          _run_ninja_build(
+        File "/root/miniconda3/envs/q-align/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2116, in _run_ninja_build
+          raise RuntimeError(message) from e
+      RuntimeError: Error compiling objects for extension
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for flash-attn
+  Running setup.py clean for flash-attn
+Failed to build flash-attn
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> flash-attn
