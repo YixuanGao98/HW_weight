@@ -196,3 +196,6 @@ if __name__ == "__main__":
 # === 规则 rule_5（清晰度差）统计 ===
 # 总数: 100 | TP: 46 | FP: 4 | TN: 46 | FN: 4
 # Accuracy: 0.9200 | Precision: 0.9200 | Recall: 0.9200 | F1: 0.9200
+
+
+ImportError: FlashAttention2 has been toggled on, but it cannot be used due to the following error: the package flash_attn seems to be not installed. Please refer to the documentation of https://huggingface.co/docs/transformers/perf_infer_gpu_one#flashattention-2 to install Flash Attention 2
