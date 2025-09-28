@@ -10,7 +10,7 @@ wget --no-check-certificate https://huggingface.co/GYX98/HW_weight/resolve/main/
 import os
 import json
 from glob import glob
-
+https://huggingface.co/datasets/chaofengc/IQA-PyTorch-Datasets/resolve/main/koniq10k.tgz
 def generate_image_quality_dataset(root_dir, output_json="image_quality_dataset.json"):
     dataset = []
     
