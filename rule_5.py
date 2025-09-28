@@ -1,3 +1,31 @@
+import os
+from PIL import Image
+
+def resize_images(input_dir, output_dir, size=(1024, 768)):
+    # 创建输出文件夹
+    os.makedirs(output_dir, exist_ok=True)
+
+    # 遍历输入文件夹
+    for filename in os.listdir(input_dir):
+        if filename.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp', '.tiff')):
+            img_path = os.path.join(input_dir, filename)
+            out_path = os.path.join(output_dir, filename)
+
+            try:
+                # 打开并resize
+                img = Image.open(img_path).convert("RGB")
+                img_resized = img.resize(size, Image.LANCZOS)  # 高质量resize
+
+                # 保存到输出文件夹
+                img_resized.save(out_path)
+                print(f"✅ {filename} 已保存到 {out_path}")
+            except Exception as e:
+                print(f"❌ 处理 {filename} 出错: {e}")
+
+# 使用方法
+input_folder = "input_images"     # 你的输入文件夹路径
+output_folder = "resized_images"  # 输出文件夹路径
+resize_images(input_folder, output_folder)
 
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
