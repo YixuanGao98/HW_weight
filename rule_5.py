@@ -350,323 +350,426 @@ error: failed-wheel-build-for-install
 × Failed to build installable wheels for some pyproject.toml based projects
 ╰─> flash-attn
 pip install flash-attn --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host=files.pythonhosted.org
-
 3.970703125
-0.5145806074142456
+0.47054266929626465
 [rule_5/True] 202508011724294810999433D646578ED24A67EE1B58F3.jpg -> 预测:True | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.08984375
-0.5280359983444214
-[rule_5/True] 202508011724300D54C161E4504FA0B0044A8D1CD8F13B.jpg -> 预测:True | 真实:True
+0.5446516275405884
+[rule_5/True] 202508011724300D54C161E4504FA0B0044A8D1CD8F13B.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.12890625
-0.543764591217041
+0.5347238779067993
 [rule_5/True] 202508011744028E30F6A2B2A048EC8EB40E051ABA29F8.jpg -> 预测:True | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.9921875
-0.43557021021842957
+0.4027281403541565
 [rule_5/True] 20250801175350C0736DA86A5A4AD09E4E8700948B6BE6.jpg -> 预测:True | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.2578125
-0.45843392610549927
+0.4544339179992676
 [rule_5/True] 2025082218001773e6cf299c294f8aa622e42cb5384eb9.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.15625
-0.6655001640319824
-[rule_5/True] 20250822194641F15F58FBBA07452DA821C9F22C23DF13.jpg -> 预测:True | 真实:True
+0.6147210597991943
+[rule_5/True] 20250822194641F15F58FBBA07452DA821C9F22C23DF13.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.46484375
-0.37798428535461426
+0.42878609895706177
 [rule_5/True] 20250902183332865BF2860813448D987738FBB6C31082.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.359375
-0.5577594041824341
+0.569950520992279
 [rule_5/True] 2025090218494503A8B0D44DFA40E59E21661A43EDA802.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.953125
-0.43872177600860596
+0.5036550164222717
 [rule_5/True] 20250902184945A8AB36D9D4B84C64A334C324982B63C7.jpg -> 预测:True | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.302734375
-0.5189983248710632
-[rule_5/True] 2025090515442942EE6C28615A4885835F69CABB3B4896.jpg -> 预测:True | 真实:True
+0.5524501800537109
+[rule_5/True] 2025090515442942EE6C28615A4885835F69CABB3B4896.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.87109375
-0.576153576374054
-[rule_5/True] 2025092318440421D6F5C8058E42A6B12EC81F91DB43DF.jpg -> 预测:True | 真实:True
+0.5707246661186218
+[rule_5/True] 2025092318440421D6F5C8058E42A6B12EC81F91DB43DF.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.3203125
-0.5955145955085754
+0.5375510454177856
 [rule_5/True] dsp_url_202508081750470EA553EE84CE4204AC7BA16EED243802.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 2.900390625
-0.27711600065231323
+0.39633044600486755
 [rule_5/True] dsp_url_202509231800066EBB8604E92D427996C59A51D047D660.jpg -> 预测:True | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.9296875
-0.7074806690216064
-[rule_5/True] 文字促销感重_后期处理_精美度__202508081032427e60e7e5c5524cc89db6ce0aa29db9a3.jpg -> 预测:True | 真实:True
+0.6200064420700073
+[rule_5/True] 文字促销感重_后期处理_精美度__202508081032427e60e7e5c5524cc89db6ce0aa29db9a3.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.1640625
-0.702642023563385
-[rule_5/True] 文字促销感重_后期处理_精美度_清晰度__20250810103745a5cdbbd6c39d4d589f85e4f8338c3cd9.jpg -> 预测:True | 真实:True
+0.6414284706115723
+[rule_5/True] 文字促销感重_后期处理_精美度_清晰度__20250810103745a5cdbbd6c39d4d589f85e4f8338c3cd9.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.09765625
-0.599070131778717
-[rule_5/True] 文字促销感重_后期处理_精美度_清晰度__202508101039468ecdcf5d7cf74d9e825dcb000f752f46.jpg -> 预测:True | 真实:True
+0.5880330204963684
+[rule_5/True] 文字促销感重_后期处理_精美度_清晰度__202508101039468ecdcf5d7cf74d9e825dcb000f752f46.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.0625
-0.6939282417297363
-[rule_5/True] 文字促销感重_后期处理_精美度_清晰度__20250810104248cfda344ae0964edd90220b85f54771b0.jpg -> 预测:True | 真实:True
+0.5994113683700562
+[rule_5/True] 文字促销感重_后期处理_精美度_清晰度__20250810104248cfda344ae0964edd90220b85f54771b0.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.3203125
-0.7083465456962585
+0.6053613424301147
 [rule_5/True] 文字促销感重_后期处理_精美度_清晰度__20250810105444dd8414ace5c74b9d8bca3006ef055068.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.869140625
-0.6975467801094055
-[rule_5/True] 文字促销感重_清晰度_精美度__202508081025121c000e96521847d4b5efe8ca121841e4.jpg -> 预测:True | 真实:True
+0.6210309267044067
+[rule_5/True] 文字促销感重_清晰度_精美度__202508081025121c000e96521847d4b5efe8ca121841e4.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.466796875
-0.5818092226982117
-[rule_5/True] 文字促销感重_清晰度_精美度__20250808102750c2a20d98ae164312ae7396a8cd1c0b08.jpg -> 预测:True | 真实:True
+0.5550448894500732
+[rule_5/True] 文字促销感重_清晰度_精美度__20250808102750c2a20d98ae164312ae7396a8cd1c0b08.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.06640625
-0.4742397665977478
+0.45870792865753174
 [rule_5/True] 文字促销感重_清晰度_精美度__20250808104722d87083adcf4a4cf3843487466f9a280b.jpg -> 预测:True | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.84375
-0.6539300084114075
-[rule_5/True] 文字促销感重_清晰度_精美度__20250808105203f7afd5a5760c4d3aa691ea7e1490cbb1.jpg -> 预测:True | 真实:True
+0.5796284079551697
+[rule_5/True] 文字促销感重_清晰度_精美度__20250808105203f7afd5a5760c4d3aa691ea7e1490cbb1.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.947265625
-0.5727234482765198
+0.539668083190918
 [rule_5/True] 文字促销感重_清晰度_精美度__202508101024561ae8647952c147b5a98c3232b9227784.jpg -> 预测:True | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.15625
-0.6911641955375671
-[rule_5/True] 文字促销感重_清晰度_精美度__20250810102714f9d641c402eb4c24851c868f59017e14.jpg -> 预测:True | 真实:True
+0.6754626035690308
+[rule_5/True] 文字促销感重_清晰度_精美度__20250810102714f9d641c402eb4c24851c868f59017e14.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.11328125
-0.6726782321929932
-[rule_5/True] 文字促销感重_清晰度_精美度__20250810103749c528d1aefb8449468a403f38d05e8d2b.jpg -> 预测:True | 真实:True
+0.6291708946228027
+[rule_5/True] 文字促销感重_清晰度_精美度__20250810103749c528d1aefb8449468a403f38d05e8d2b.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.953125
-0.6136009097099304
-[rule_5/True] 文字促销感重_清晰度_精美度__202508101040192204b8c441e24faeae247e2e25a2d69b.jpg -> 预测:True | 真实:True
+0.5675967931747437
+[rule_5/True] 文字促销感重_清晰度_精美度__202508101040192204b8c441e24faeae247e2e25a2d69b.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.578125
-0.5882598757743835
-[rule_5/True] 文字促销感重_精美度_清晰度__20250808102753e29b23da6a56409392cead9b466965da.jpg -> 预测:True | 真实:True
+0.5618650913238525
+[rule_5/True] 文字促销感重_精美度_清晰度__20250808102753e29b23da6a56409392cead9b466965da.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.810546875
-0.60428786277771
-[rule_5/True] 文字促销感重_精美度_清晰度（模棱两可额）__20250810102459b0237f1a0bbd4b1fa64734925bed0c8e.jpg -> 预测:True | 真实:True
+0.6455385684967041
+[rule_5/True] 文字促销感重_精美度_清晰度（模棱两可额）__20250810102459b0237f1a0bbd4b1fa64734925bed0c8e.jpg -> 预测:False | 真实:True
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.36328125
-0.5779425501823425
+0.5296385288238525
 [rule_5/False] 202507171759420E3753EA5DE54D10A921F50543CD40B5.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.89453125
-0.546360433101654
-[rule_5/False] 202507301128478BC608779F354EBA974D3A8BD9D886D7.jpg -> 预测:True | 真实:False
+0.5457233786582947
+[rule_5/False] 202507301128478BC608779F354EBA974D3A8BD9D886D7.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.39453125
-0.6518017053604126
+0.6105613708496094
 [rule_5/False] 2025080515171275A120FF9906452980D21795B82E1DA9.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.939453125
-0.6447573900222778
-[rule_5/False] 2025080609314806304AD5E6784CA1B9E5EEE1653F9AAB.jpg -> 预测:True | 真实:False
+0.6072190403938293
+[rule_5/False] 2025080609314806304AD5E6784CA1B9E5EEE1653F9AAB.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.31640625
-0.701745867729187
+0.6754438281059265
 [rule_5/False] 20250813160846196787B34459415B9E089FB6C01B9090.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.1328125
-0.6952669024467468
-[rule_5/False] 2025081518124049b65db3ad2b42888f6061e8749e63a2.jpg -> 预测:True | 真实:False
+0.6695600748062134
+[rule_5/False] 2025081518124049b65db3ad2b42888f6061e8749e63a2.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.31640625
-0.6414879560470581
+0.6534541845321655
 [rule_5/False] 2025081810463743ed3efc3af141188679e417662a9a87.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.31640625
-0.6606512665748596
+0.6560771465301514
 [rule_5/False] 2025081811550156EEA4F44FED43639E64BF6B8A4A2B14.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.30859375
-0.6064467430114746
+0.5469538569450378
 [rule_5/False] 2025081818240278AE902D4EE64CDE83C1C885FD8AD815.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.2265625
-0.7140315771102905
+0.676246702671051
 [rule_5/False] 2025081821460640DAAC12103447E98D72630B09582F53.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.13671875
-0.6368594169616699
-[rule_5/False] 202508191452286873E4A7171F4781A19C1E3FDBB1F7A8.jpg -> 预测:True | 真实:False
+0.5913965702056885
+[rule_5/False] 202508191452286873E4A7171F4781A19C1E3FDBB1F7A8.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.47265625
-0.6905313730239868
+0.6039924025535583
 [rule_5/False] 20250820112913CC4238BC69FA46CCB1CA8D29324CEA89.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.40234375
-0.6471689939498901
+0.5815380811691284
 [rule_5/False] 20250820112913E9C27F4B1CB8491FBAA72D9B5C4E7644.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.5078125
-0.7597354650497437
+0.6584481000900269
 [rule_5/False] 20250820112914F874B53A86C04723AADAD4508E3BAA08.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.58203125
-0.5993754267692566
+0.5497040152549744
 [rule_5/False] 20250820112914FCA8F17065FE4F5A8BE0B084150C2BDE.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.869140625
-0.6628815531730652
-[rule_5/False] 20250820174958C3DF67ACEE2A40E8A1AC0E2C19250DC6.jpg -> 预测:True | 真实:False
+0.6247681975364685
+[rule_5/False] 20250820174958C3DF67ACEE2A40E8A1AC0E2C19250DC6.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.31640625
-0.6058523058891296
+0.6160472631454468
 [rule_5/False] 20250820211118e029a3a354a8412587914f47f9679fb8.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.4765625
-0.6762619614601135
+0.6383341550827026
 [rule_5/False] 20250820211130f433ce25bbd14704884a27fe5590f220.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.46484375
-0.6413785219192505
+0.6568992733955383
 [rule_5/False] 20250820211209df0ee33cdeb04fa5aa8ffeb53f5988aa.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.34765625
-0.6130399703979492
+0.5948393940925598
 [rule_5/False] 20250820211212ff41d43d5cb74756923cc9bce6783c42.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.11328125
-0.6307457685470581
-[rule_5/False] 20250820211430880fbae6a16e4e1c9fcc84278ec85d87.jpg -> 预测:True | 真实:False
+0.6143455505371094
+[rule_5/False] 20250820211430880fbae6a16e4e1c9fcc84278ec85d87.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.27734375
-0.6589416861534119
+0.6411608457565308
 [rule_5/False] 20250820211539c1975a2b4929442385ef48a25bfc91b3.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.9765625
-0.5931840538978577
-[rule_5/False] 20250821145317E4398E4AED7F4F9F84CECA3EBEC7A025.jpg -> 预测:True | 真实:False
+0.5430749654769897
+[rule_5/False] 20250821145317E4398E4AED7F4F9F84CECA3EBEC7A025.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.0234375
-0.5831785202026367
-[rule_5/False] 20250821162700A87CA78F70204081B78A97CAA4B90176.jpg -> 预测:True | 真实:False
+0.5592329502105713
+[rule_5/False] 20250821162700A87CA78F70204081B78A97CAA4B90176.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.23046875
-0.6352905035018921
+0.5976365208625793
 [rule_5/False] 20250821162701F3E96487C4094701902E230F1AB9DF64.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.3984375
-0.6944670081138611
+0.642775297164917
 [rule_5/False] _20250818102728e0ba23aa8458464ab443e37a611ad4c2.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.578125
-0.6404750943183899
+0.5777890682220459
 [rule_5/False] _20250820112914F4C3AB9B5AE24BA7AB825E415CCCC054.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.08984375
-0.569351851940155
-[rule_5/False] _202508201510250F0DEC26EEB9410B9D5901F1643273B2.jpg -> 预测:True | 真实:False
+0.5947120189666748
+[rule_5/False] _202508201510250F0DEC26EEB9410B9D5901F1643273B2.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.12109375
-0.5705673694610596
-[rule_5/False] _20250820151025ED806B8BFD464AB6BAA257D3026342A6.jpg -> 预测:True | 真实:False
+0.6103329062461853
+[rule_5/False] _20250820151025ED806B8BFD464AB6BAA257D3026342A6.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.39453125
-0.69380122423172
+0.6324851512908936
 [rule_5/False] _20250820191913e89faac397544adfb2d4197905b6b501.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.44921875
-0.6763481497764587
+0.6358564496040344
 [rule_5/False] _202508201919171dc6b35eb4fb405bbdc082840647b5f8.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.58203125
-0.6399151682853699
+0.6203743815422058
 [rule_5/False] _20250820191918cd52197beccf463c930575eb07b25fe5.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.4453125
-0.4785362184047699
+0.5525977611541748
 [rule_5/False] _20250820191926eaf6ce70f7e940f983711037b0365ed4.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.66015625
-0.6020705103874207
+0.6376363039016724
 [rule_5/False] _20250820191931fd0f90922e9b46889192a58927a1c084.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.52734375
-0.6126751899719238
+0.6232709884643555
 [rule_5/False] _20250820191946eb706912b0164e88a564bd2933ac68a9.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.19140625
-0.7268860936164856
+0.6935747861862183
 [rule_5/False] _20250821162701AD57134C4FD247E0A8C9D66245D5656C.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.43359375
-0.7169226408004761
+0.6418907046318054
 [rule_5/False] _dsp_url_2025051917345945FB72FC174F4DE68B518B03B0E2B30D.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.0703125
-0.6481902003288269
-[rule_5/False] _dsp_url_2025081317582472794249E5EB429A89E439E81C8ED6A7.jpg -> 预测:True | 真实:False
+0.6893547773361206
+[rule_5/False] _dsp_url_2025081317582472794249E5EB429A89E439E81C8ED6A7.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.55078125
-0.6045190691947937
+0.5912187099456787
 [rule_5/False] _dsp_url_20250818150052614815232031446DB1C144BEBD86A58F.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.58984375
-0.6047294735908508
+0.6013585925102234
 [rule_5/False] _dsp_url_2025081914120668CC8FE7DABF46F68F564C6D1D0E4898.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.40625
-0.5602637529373169
+0.6187252402305603
 [rule_5/False] _dsp_url_2025081917073747973E7496294F9EAF9D919E5B8D1F65.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.73046875
-0.650303304195404
+0.682177722454071
 [rule_5/False] _dsp_url_2025081917402282661CCDD99843DC86295824959A47DC.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.3203125
-0.572022020816803
+0.5945342183113098
 [rule_5/False] _dsp_url_2025082017431550D405823D514BBEADF224A1A62CC449.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.94140625
-0.5544169545173645
-[rule_5/False] _dsp_url_202508211444339367C6BC9E9141FD88E963CF6C002523.jpg -> 预测:True | 真实:False
+0.6286210417747498
+[rule_5/False] _dsp_url_202508211444339367C6BC9E9141FD88E963CF6C002523.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.89453125
-0.7739174365997314
+0.7123289704322815
 [rule_5/False] _dsp_url_202508211702152FA4364E455546E2A6DA8BEC633847AD.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.65234375
-0.6106088161468506
+0.5394849181175232
 [rule_5/False] dsp_url_2025050910345170230B855F5E4104BAC156A81E7C4FD1.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.23828125
-0.7141086459159851
+0.6365645527839661
 [rule_5/False] dsp_url_2025051313434873998272D1374F9FA1480611BA672C4B.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.20703125
-0.5851951241493225
+0.5906908512115479
 [rule_5/False] dsp_url_20250625150356A2B11CA245CC4ACFB519ADF8442392D9.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.87109375
-0.46863484382629395
-[rule_5/False] dsp_url_20250625150356A8F2EC02144F4EEB80B7C87C9CB454A3.jpg -> 预测:True | 真实:False
+0.551888644695282
+[rule_5/False] dsp_url_20250625150356A8F2EC02144F4EEB80B7C87C9CB454A3.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.19921875
-0.6526712775230408
+0.6156619787216187
 [rule_5/False] dsp_url_20250703160047BF29E5123CCD491F95BDCCBFF8682D23.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 3.990234375
-0.48529142141342163
+0.5200100541114807
 [rule_5/False] dsp_url_20250707162036DB9103539EF34CC291E760DC73ED802F.jpg -> 预测:True | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.09375
-0.6706236600875854
-[rule_5/False] dsp_url_20250715103328DECB09FE1E47405198672CAF9C4F4B21.jpg -> 预测:True | 真实:False
+0.60791015625
+[rule_5/False] dsp_url_20250715103328DECB09FE1E47405198672CAF9C4F4B21.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.70703125
-0.6569740772247314
+0.6955819725990295
 [rule_5/False] dsp_url_20250725112342AE576026F07C43FC9566B1C64882BF73.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.04296875
-0.5398902297019958
-[rule_5/False] dsp_url_202507251124082169AE0D9CE2438B8488F82A8D2FE7F9.jpg -> 预测:True | 真实:False
+0.591606616973877
+[rule_5/False] dsp_url_202507251124082169AE0D9CE2438B8488F82A8D2FE7F9.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.4296875
-0.6379547119140625
+0.6082338094711304
 [rule_5/False] dsp_url_20250728142250F6A6B214C924419E99FA783A7CCA4769.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.375
-0.6241902112960815
+0.6657873392105103
 [rule_5/False] dsp_url_202508081628154826AE2893F94599A57E008563B53310.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.3828125
-0.6037764549255371
+0.6404680013656616
 [rule_5/False] dsp_url_202508141014528278E712B86E4FFC955EB64852F0CEB6.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.4609375
-0.5381878614425659
+0.5639368295669556
 [rule_5/False] dsp_url_20250815105251C2C57BA1FFFC453C908827C82993D836.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.34375
-0.6112974286079407
+0.5710031390190125
 [rule_5/False] dsp_url_20250815110819A964E29A88374B819F98CE2AB8B1CE4B.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.3046875
-0.5834386348724365
+0.5274462103843689
 [rule_5/False] dsp_url_20250815110819B7DB619F7C59429ABCF99F5DDFCCD01A.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.58984375
-0.6308523416519165
+0.5738198161125183
 [rule_5/False] dsp_url_2025081511090977BACB55DB734F1EBD9D271FD20D246B.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.7421875
-0.6348982453346252
+0.6277196407318115
 [rule_5/False] dsp_url_2025081511385054A314F2CAB544FFA276B0975517A5F0.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.234375
-0.6489514112472534
+0.6079986095428467
 [rule_5/False] dsp_url_2025081518245011EF15EF38A349ADA8C7C86FE850747A.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.2421875
-0.6602416634559631
+0.6181042790412903
 [rule_5/False] dsp_url_2025081518275697CA0D43D6AC45F78B31C1128648D5EF.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.09375
-0.642192542552948
-[rule_5/False] dsp_url_2025081518283250EC2BE34B354F30A30BC56EF690DF06.jpg -> 预测:True | 真实:False
+0.6519144773483276
+[rule_5/False] dsp_url_2025081518283250EC2BE34B354F30A30BC56EF690DF06.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.36328125
-0.6204902529716492
+0.6428147554397583
 [rule_5/False] dsp_url_2025081520011978B50753DEAC437FACF2B1DDCAA09A70.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.3046875
-0.6936514973640442
+0.6866991519927979
 [rule_5/False] dsp_url_20250815201011A96F6D34B9044DC6982511BF3B2A0275.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.13671875
-0.6480029225349426
-[rule_5/False] dsp_url_20250816204149CF2430E4D8B541DD84DF64BA8BEB857A.jpg -> 预测:True | 真实:False
+0.5838228464126587
+[rule_5/False] dsp_url_20250816204149CF2430E4D8B541DD84DF64BA8BEB857A.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.30078125
-0.7427631616592407
+0.7102533578872681
 [rule_5/False] dsp_url_20250817213054B518EFDED8634D6899F75990CD76C635.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.44921875
-0.6167690753936768
+0.6474472284317017
 [rule_5/False] dsp_url_20250818150308CA6A90E3A6BD422D83F4EB3BC8A5EC79.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.55859375
-0.5619165897369385
+0.5755252242088318
 [rule_5/False] dsp_url_20250818150308FA84BB3E955B451CAC4231DB9582E343.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.39453125
-0.5861208438873291
+0.6203721165657043
 [rule_5/False] dsp_url_20250819140833284B5521FA3143868FE411B113CA155A.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.34375
-0.656871497631073
+0.6238701939582825
 [rule_5/False] dsp_url_20250820175051886C5855F6134FD994DB2E2D80442332.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.28515625
-0.5262367129325867
+0.5302484035491943
 [rule_5/False] dsp_url_20250820175745681A0D0274D94993854F4777F2502FAA.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.79296875
-0.6939090490341187
+0.659087598323822
 [rule_5/False] dsp_url_2025082114341313E50529AF1C4538B65AC09DE70E7F95.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.45703125
-0.6882475018501282
+0.6934659481048584
 [rule_5/False] dsp_url_2025082114360841B2191E7D1E4F089EBEB623024EC7AE.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.78125
-0.7672068476676941
+0.7774208784103394
 [rule_5/False] dsp_url_2025082116555265CE45116D6D4CFEBB84379BDFF6E765.jpg -> 预测:False | 真实:False
+Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2B_koniq.pth
 4.69140625
-0.5867758393287659
+0.6179515719413757
 [rule_5/False] dsp_url_2025082117233880A83BB886164FA4AB64A2F0B01F47E6.jpg -> 预测:False | 真实:False
-
