@@ -1,3 +1,65 @@
+mage transforms: Compose(
+    Resize(size=256, interpolation=bicubic, max_size=None, antialias=True)
+    CenterCrop(size=(224, 224))
+    ToTensor()
+)
+Traceback (most recent call last):
+  File "/home/wsw/gyx/unilm-master/beit2/all.py", line 361, in <module>
+    main(
+  File "/home/wsw/gyx/unilm-master/beit2/all.py", line 278, in main
+    pred = bool(fn(img, running_idx))
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/wsw/gyx/unilm-master/beit2/all.py", line 198, in <lambda>
+    "fn": lambda img, idx=None: bool(is_realistic_or_postprocessing(POSTPRO_BEST,img))
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wsw/gyx/unilm-master/beit2/rule_6_7.py", line 36, in is_realistic_or_postprocessing
+    images = transform(img_rgb).unsqueeze(0)
+             ^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torchvision/transforms/transforms.py", line 95, in __call__
+    img = t(img)
+          ^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torchvision/transforms/transforms.py", line 354, in forward
+    return F.resize(img, self.size, self.interpolation, self.max_size, self.antialias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torchvision/transforms/functional.py", line 465, in resize
+    _, image_height, image_width = get_dimensions(img)
+                                   ^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torchvision/transforms/functional.py", line 80, in get_dimensions
+    return F_pil.get_dimensions(img)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/torchvision/transforms/_functional_pil.py", line 31, in get_dimensions
+    raise TypeError(f"Unexpected type {type(img)}")
+TypeError: Unexpected type <class 'numpy.ndarray'>
+
+    img_rgb = cv2.cvtColor(img_np, cv2.COLOR_BGR2RGB)  # shape: (H, W, C), RGB格式
+    transform = pth_transforms.Compose([
+        pth_transforms.Resize(256, interpolation=3),
+        pth_transforms.CenterCrop(224),
+        pth_transforms.ToTensor(),
+        # pth_transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)), # Normalize in pre-process of vqkd
+    ])
+    print(f"Image transforms: {transform}")
+
+    images = transform(img_rgb).unsqueeze(0)
+
+    # ============ building network ... ============
+    model = create_model(
+            'beit_base_patch16_224',
+            pretrained=False,
+            as_tokenzer=True,
+        ).eval()
+    model.load_state_dict(torch.load(pretrained_dir))
+
+    input_ids = model.get_codebook_indices(images)
+    print(input_ids)
+
+
 import os
 from PIL import Image
 
