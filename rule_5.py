@@ -1,3 +1,13 @@
+# 通过 softmax 转化为概率分布
+output_prob = softmax(output, dim=-1)
+
+# 选择概率最高的类别作为预测类别
+predicted_labels = torch.argmax(output_prob, dim=-1)
+
+# 计算 Precision 和 Recall
+precision = precision_score(target.numpy(), predicted_labels.numpy())
+recall = recall_score(target.numpy(), predicted_labels.numpy())
+
 def is_realistic_or_postprocessing(pretrained_dir,img_np):
 
     # 1. 转换通道顺序: BGR -> RGB（如果模型需要RGB输入）
