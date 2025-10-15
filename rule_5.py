@@ -15,6 +15,366 @@
     "file_path": "/home/wsw/jikaiyuan/code/dataset_test_1/ads/Poor/76244e109c6265e1c85ec3d34d586cd0207972d6ff9e478d1b5b881ddeab3f52.png.png"
   },
 
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a436a24c01ded0c0fddc9f3ef462d450bd3bf0c6806106cee9b8c4f1ab6e378.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,构图\": \"广告图片的构图较为简洁，主要分为三个部分：顶部的金色文字、中间的红色广告区和底部的金色按钮。广告区左侧是红色背景，右侧是白色背景，中间是灰色的洗手台和绿色的植物，整体布局合理，层次分明。\",        \"色彩\": \"色彩搭配上，红色和金色给人以热烈和吸引人的感觉，白色和灰色则提供了视觉上的平衡，绿色的植物增加了自然和生机。\",        \"设计\": \"设计方面，广告图片使用了丰富的图标和文字，使得信息传达清晰。图标和文字的使用使得广告图片看起来专业且有吸引力。\",        \"整体性\": \"整体上，广告图片的构图、色彩、设计和整体性都较好，没有明显的质量问题。\",        \"广告图片\": \"广告图片的美观度为Fair，存在一定的质量问题，如广告图片的细节不够精致，图标和文字的排版有些拥挤，使得整体看起来有些杂乱。\"    , 图像是美观度为Fair的原因是广告图片的细节不够精致，图标和文字的排版有些拥挤，使得整体看起来有些杂乱。\", 得出图片美观度为Fair的",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a436a24c01ded0c0fddc9f3ef462d450bd3bf0c6806106cee9b8c4f1ab6e378.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a436a24c01ded0c0fddc9f3ef462d450bd3bf0c6806106cee9b8c4f1ab6e378.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,广告图片展示了一个红色背景的横幅，上面有文字和一个产品展示的图片。横幅上有“今日推荐”和“海量低价好物 任你挑选”的字样，下方有一张浴室场景的照片，显示了毛巾架和洗漱用品。广告的下方有“今日头条”字样， 了这个平台的特点，强调了品质保证和价格便宜。图片右下角有一个“去看看”的按钮。\", 图片广告属性为Fair。",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a436a24c01ded0c0fddc9f3ef462d450bd3bf0c6806106cee9b8c4f1ab6e378.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a57a154b8101cecb8d0519a524309f58a0f025b2376b5056acce2b0dc5e2099.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,构图\": \"广告图片的构图较为简洁，主要焦点在于展示的电锤锤产品。\",    \"色彩\": \"广告图片的色彩搭配较为和谐，主要以产品本身的颜色为主，背景颜色较为柔和，没有过于抢眼的色彩。\",    \"设计\": \"设计上，广告图片使用了清晰的产品展示，字体和按钮的设计也很简洁，符合广告的宣传目的。\",    \"整体性\": \"整体上，广告图片的设计和展示都很清晰，没有明显的质量问题。\",    \"广告图片是否存在质量问题\": \"没有\"  , 虽然广告图片的设计简洁，色彩搭配和谐，整体上没有明显的质量问题，但是由于产品展示的单一性，没有其他吸引人的元素或细节，导致整体美观度略显一般。\", 图像美观度为Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a57a154b8101cecb8d0519a524309f58a0f025b2376b5056acce2b0dc5e2099.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a57a154b8101cecb8d0519a524309f58a0f025b2376b5056acce2b0dc5e2099.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,广告图片\": \"这是一张广告图片，展示了一款东成大功率电锤锤。图片背景为浅粉色，广告文字位于图片右侧，内容为“NEW FASHION/HOT PRODUCTS 东成大功率电锤锤 淘宝热款 推荐 立即去逛逛”。电锤锤的设计包括一个黑色的握把和一个橙色的底座，底座上印有“东成”的字样。\",        \"广告文字\": \"广告文字清晰可见，描述了产品为东成大功率电锤锤，是一款淘宝热款，并且有一个推荐按钮，引导用户点击去淘宝逛逛。\",        \"产品\": \"东成大功率电锤锤\",        \"推广目的\": \"推广产品，吸引用户购买\"    , 虽然图片中的文字信息清晰可见，但核心卖点不突出。广告文字描述了产品为东成大功率电锤锤，是一款淘宝热款，并且有一个推荐按钮，引导用户点击去淘宝逛逛。但是，图片中没有明确展示产品的核心卖点，如大功率、高效等。此外，图片的背景和产品功能匹配，但未激发情感共鸣。\", 根据以上分析，图片广告属性为Fair。",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a57a154b8101cecb8d0519a524309f58a0f025b2376b5056acce2b0dc5e2099.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a60729fe41f007012485d729d86f3225dd252d7b0e52b14be8bce59549f801f.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,构图\": \"广告图片的构图简洁明了，主要突出了一罐婴儿奶粉。\",    \"色彩\": \"颜色搭配和谐，以白色和金色为主，显得高贵典雅。\",    \"设计\": \"设计上，罐子上有品牌的标志和产品信息，字体清晰易读。\",    \"整体性\": \"整体布局合理，广告文字与产品图片配合得当。\",    \"存在质量问题\": \"未发现广告图片存在质量问题。\"  , 尽管广告图片设计简洁明了，色彩搭配和谐，但整体美感略显平淡，缺乏亮点和创意。\", 图像美观度为Fair。",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a60729fe41f007012485d729d86f3225dd252d7b0e52b14be8bce59549f801f.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a60729fe41f007012485d729d86f3225dd252d7b0e52b14be8bce59549f801f.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,产品\": \"Friso Prestige 皇家美素佳儿幼儿配方奶粉\",        \"图片\": \"图片展示了一罐3段奶粉，背景为浅黄色，文字信息清晰可见，包含产品名称、适用年龄和净含量等信息。\",        \"广告元素\": \"图片右侧有文字描述，提到这是淘宝热款，并有一个按钮引导用户立即去逛逛。\"    , 图像广告属性为Fair，因为虽然能识别推广内容，但核心卖点不突出。图片中的文字信息较多，且卖点罗列杂乱，场景与产品功能匹配，但未激发情感共鸣。\", 图片广告属性为Fair。",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a60729fe41f007012485d729d86f3225dd252d7b0e52b14be8bce59549f801f.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a6d77bc1259d15e32c6984c99f7d60ee2361dfb8f6c0f39fac85e742341a08d.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,图像显示了一位穿着京东养车工作服的男子正在使用笔记本电脑。背景是红色的墙壁，墙上有一些信息板和广告。男子专注地在键盘上打字，整体构图简洁明了。\", 图像的构图和色彩搭配较为协调，背景信息板和广告的加入增加了图像的信息量。然而，图像的焦点集中在男子和电脑上，其他元素相对较少，导致整体视觉效果略显单一。\", 图像美观度为Fair。",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a6d77bc1259d15e32c6984c99f7d60ee2361dfb8f6c0f39fac85e742341a08d.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a6d77bc1259d15e32c6984c99f7d60ee2361dfb8f6c0f39fac85e742341a08d.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,图片中显示了一位穿着京东养车制服的男子正在使用电脑，背景是红色的墙壁，上面有“京东”字样。男子面前的电脑屏幕上显示了一条黄色的横幅，上面写着“山东一男子加盟京东养车，京东总部2亿+客户资源共享”，下方还有一行小字“网友：小王变王总”。\", 图片的广告属性为Fair，因为虽然能识别推广内容，但核心卖点不突出。文字信息被弱化，优惠信息被弱化。场景与产品功能匹配，但未激发情感共鸣。\", 图片广告属性为Fair。",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a6d77bc1259d15e32c6984c99f7d60ee2361dfb8f6c0f39fac85e742341a08d.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a71c6ac6f2e45ddf9fae99d2202daace4580dd64c1947137411053ff3821802.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,构图\": \"图像展示了两件不同角度的绿色大衣，左侧展示大衣的正面，右侧展示大衣的背面。大衣的正面有明显的扣子和腰带，背面则展示了整洁的缝线和口袋。背景简洁，突出了大衣的细节。\",        \"色彩\": \"大衣的绿色与背景形成了鲜明的对比，使大衣的色彩显得非常醒目。大衣的材质看起来柔软，给人一种温暖的感觉。\",        \"设计\": \"大衣的设计简洁大方，正面有双排扣设计，背面有整洁的缝线和口袋，整体设计符合时尚潮流。\",        \"整体性\": \"图像的整体性非常好，构图合理，色彩搭配和谐，设计简洁大方，给人一种舒适和时尚的感觉。\",        \"质量问题\": \"广告图片没有明显的质量问题，图像清晰，细节展示良好。\"    , 图像的美观度为Fair，主要是因为大衣的正面展示并不完全，没有展示出大衣的全貌，导致大衣的整体设计和细节无法完全展示出来。\", 根据以上分析，广告图片的美观度为Fair。",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a71c6ac6f2e45ddf9fae99d2202daace4580dd64c1947137411053ff3821802.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a71c6ac6f2e45ddf9fae99d2202daace4580dd64c1947137411053ff3821802.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,正面\": \"图片展示了一件浅绿色的长款大衣，配有黑色手提包。大衣的腰间系着一条腰带，整体设计简约大方，给人一种优雅的感觉。\",    \"背面\": \"图片展示了大衣的背面，可以看到大衣的袖子和后腰的细节，整体设计线条流畅，没有多余的装饰。\"  , 图片展示了大衣的正面和背面，可以清楚地看到大衣的款式和细节。但是，图片中没有明确的推广信息，比如价格、品牌或者优惠活动等。用户无法从图片中直接识别出产品的核心卖点。\", 图片的广告属性为Fair。",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a71c6ac6f2e45ddf9fae99d2202daace4580dd64c1947137411053ff3821802.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a77aa4d7cbea1c6f5adca355fe85d503e735a70e32a21c8bceb3f6e1e25e373.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的美观度进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,构图\": \"广告图片采用简洁的构图方式，主体为一件深蓝色连衣裙，背景为浅绿色，整体设计清晰明了。\",        \"色彩\": \"深蓝色连衣裙与浅绿色背景形成鲜明对比，色彩搭配和谐，视觉效果良好。\",        \"设计\": \"图片周围有多个绿色的装饰元素，如星星、云朵和语音泡泡，增加了广告的趣味性和吸引力。\",        \"整体性\": \"图片整体布局合理，广告信息传达清晰，没有明显的质量问题。\",        \"广告图片\": \"图片质量良好，没有明显的质量问题。\"    , 虽然图片色彩搭配和谐，设计元素丰富，整体布局合理，但在美观度上仍然略显不足。\", 图片美观度为Fair。",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a77aa4d7cbea1c6f5adca355fe85d503e735a70e32a21c8bceb3f6e1e25e373.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级。",
+                "role": "user"
+            },
+            {
+                "content": "Fair",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a77aa4d7cbea1c6f5adca355fe85d503e735a70e32a21c8bceb3f6e1e25e373.png"
+        ]
+    },
+    {
+        "messages": [
+            {
+                "content": "<image>请对这张广告图片的广告属性进行评级，并提供您的理由。",
+                "role": "user"
+            },
+            {
+                "content": "Fair,推广内容\": \"这是一则关于服装的广告，展示了一件深蓝色的连衣裙。连衣裙的设计包括长袖和长裙，裙摆宽松，适合女性穿着。广告的背景是浅绿色的，有一些绿色的星星和云朵的图案，给人一种清新和时尚的感觉。广告中还有一些文字，如“HOT PRODUCTS”、“爆款优质好物分享”、“领口修饰脸型”等，强调了产品的时尚性和优质性。\"  , 尽管这则广告能识别推广内容，但核心卖点不突出。广告中提到的“领口修饰脸型”这一卖点不够突出，需要用户费力猜测广告意图。此外，广告的背景和文字信息过多且无重点，卖点罗列杂乱。尽管广告的场景与产品功能匹配，但未激发情感共鸣。因此，这则广告的广告属性为Fair。\", 这则广告的广告属性为Fair。",
+                "role": "assistant"
+            }
+        ],
+        "images": [
+            "/home/pps/code/LLaMA-Factory/data/aesthetics/label_data/0217-round1/0217-material_aesthetics_label-20000/0217-material_aesthetics_label-2500_2/3a77aa4d7cbea1c6f5adca355fe85d503e735a70e32a21c8bceb3f6e1e25e373.png"
+        ]
+    },
 
 
 
