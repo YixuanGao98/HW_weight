@@ -1,3 +1,23 @@
+  {
+    "id": 120738,
+    "image_id": "09346d5cbd42fb1b251d90a55d6d483f3eefb4293bd186941451fabf43b56a1f.png",
+    "quetion": "What is the overall advertising effectiveness of this image?",
+    "answer": "Poor",
+    "question_type": "ads",
+    "file_path": "/home/wsw/jikaiyuan/code/dataset_test_1/ads/Poor/09346d5cbd42fb1b251d90a55d6d483f3eefb4293bd186941451fabf43b56a1f.png.png"
+  },
+  {
+    "id": 170547,
+    "image_id": "76244e109c6265e1c85ec3d34d586cd0207972d6ff9e478d1b5b881ddeab3f52.png",
+    "quetion": "What is the overall advertising effectiveness of this image?",
+    "answer": "Poor",
+    "question_type": "ads",
+    "file_path": "/home/wsw/jikaiyuan/code/dataset_test_1/ads/Poor/76244e109c6265e1c85ec3d34d586cd0207972d6ff9e478d1b5b881ddeab3f52.png.png"
+  },
+
+
+
+
 # 通过 softmax 转化为概率分布
 output_prob = softmax(output, dim=-1)
 
