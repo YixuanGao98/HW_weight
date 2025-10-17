@@ -1,3 +1,6 @@
+(base) root@pps-86-174:/home/wsw/Stage1_yanshou# huggingface-cli download huawei-ad/code_hw \   --include "model/yolo/**" \   --repo-type model \   --local-dir ./model/yolo \   --token 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
+usage: huggingface-cli <command> [<args>]
+huggingface-cli: error: unrecognized arguments:    
   {
     "id": 120738,
     "image_id": "09346d5cbd42fb1b251d90a55d6d483f3eefb4293bd186941451fabf43b56a1f.png",
