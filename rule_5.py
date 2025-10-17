@@ -2,6 +2,7 @@
 usage: huggingface-cli <command> [<args>]
 huggingface-cli: error: unrecognized arguments:    
 huggingface-cli repo download huawei-ad/code_hw --repo-type model --local-dir ./model/yolo --use-auth-token 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
+git clone https://huggingface.co/huawei-ad/code_hw ./model/yolo
 
   {
     "id": 120738,
