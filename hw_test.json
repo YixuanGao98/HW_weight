@@ -1,0 +1,174 @@
+[
+    {
+        "image": "True/图片17.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片19.png",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片18.png",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片16.png",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片15.png",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片13.png",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片21.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片8.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片24.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片25.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片9.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片23.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片26.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片22.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片11.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片20.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片14.png",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片12.png",
+        "gt_score": true
+    },
+    {
+        "image": "True/图片10.jpg",
+        "gt_score": true
+    },
+    {
+        "image": "False/1138414823576631708_20241117142233caa7233a1164469e99c348c4da9b5af4.jpg",
+        "gt_score": false
+    },
+    {
+        "image": "False/6-9iYpYBOYii3YWwvkSz355994431.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/4a1AqpcBQsA74m_qe3E7425341545.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/06QphZUBIAhaJ0c9Wu0c295260115.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/5VhljpQBPG4QnEbVJmXR243525607.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/6KI7RpUBdab7T6FqK2M-278226407.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/2UkPApUBIAhaJ0c9hcBj261331231.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/9eW8-5UBekHkyGtwUsZf330753769.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/1137073336872166405_202506040755134a8474408b9642109a1b3ef50cc1ec48.jpg",
+        "gt_score": false
+    },
+    {
+        "image": "False/4aHhhJUBIAhaJ0c9-ZN1294606160.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/-7Ixf5UBOVNnhKv_dcRR292957899.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/7i4rIpUBkzQNV8dOxQEX269545139.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/1137073336872166405_2025060407421008d40c1703684e4190411f4042a2f7d0.jpg",
+        "gt_score": false
+    },
+    {
+        "image": "False/2PQ_8pYBGHnoWzMreQJl387810230.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/9OW8-5UBekHkyGtwUsZf330753770.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/3EkPApUBIAhaJ0c9hcBj261331227.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/-5yEGJYBIAhaJ0c9el3r337186625.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/1137841546290610211_dsp_url_20250530132934779A7ECE1FA2448ABF44BBBA4D274741.jpg",
+        "gt_score": false
+    },
+    {
+        "image": "False/4KAbFJYBdab7T6Fq5tW9336094951.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/1136529888800540941_20250603052328773667fb8b4b480591d7f32a1b625efa.jpg",
+        "gt_score": false
+    },
+    {
+        "image": "False/5bko25QBJ5CPkTHydReL199770627.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/3_xW6JQBIAhaJ0c9Yzsl256533460.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/5dcqhZUBQC5JVcPc6PIS295260455.png",
+        "gt_score": false
+    },
+    {
+        "image": "False/1138414334105574415_20250115091804e83b341087a44b48851d80f6d62f0463.jpg",
+        "gt_score": false
+    }
+]
