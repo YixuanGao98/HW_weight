@@ -1214,3 +1214,66 @@ Loading pretrained model QualiCLIP from /root/.cache/torch/hub/pyiqa/QualiCLIP%2
 4.69140625
 0.6179515719413757
 [rule_5/False] dsp_url_2025082117233880A83BB886164FA4AB64A2F0B01F47E6.jpg -> 预测:False | 真实:False
+
+
+
+import numpy as np
+from PIL import Image
+import torch
+import cv2
+
+def calculate_image_quality(model, image_np):
+    """
+    计算numpy格式图像的质量分数
+    
+    参数:
+        weight_path: 模型权重路径
+        image_np: numpy格式的图像数组 (H, W, C)或(N, H, W, C)
+    """
+
+    # 确保输入是4维 (N, H, W, C)
+    if len(image_np.shape) == 3:
+        image_np = np.expand_dims(image_np, axis=0)  # 添加batch维度
+        
+    
+    for i in range(image_np.shape[0]):
+        # 转换为PIL Image
+        img = Image.fromarray(image_np[i]).convert("RGB")
+        
+        # 计算质量分数
+        with torch.no_grad():
+            quality_score = model.score([img], task_="quality", input_="image")
+            # aesthetics_score = model.score([img], task_="aesthetics", input_="image")
+
+    return quality_score.item()
+    
+def calculate_image_quality_qualiclip(model, image_np):
+    """Inference demo for pyiqa."""
+    # 确保输入是4维 (N, H, W, C)
+    if len(image_np.shape) == 3:
+        image_np = np.expand_dims(image_np, axis=0)  # 添加batch维度
+        
+    for i in range(image_np.shape[0]):
+        # 转换为PIL Image
+        img = Image.fromarray(image_np[i]).convert("RGB")
+
+    ref_img_path = None
+    score = model(img, ref_img_path).cpu().item()
+    return score
+    
+def is_bad_quality(img,Qalign_model,Qualiclip_model, qalign_threshold1,qalign_threshold2,qualiclip_threshold):
+        #####清晰度，真实感，后期处理，需要转换图像
+    # 1. 转换通道顺序: BGR -> RGB（如果模型需要RGB输入）
+    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # shape: (H, W, C), RGB格式
+    
+    # 2. 添加batch维度 (N=1)
+    img_np = np.expand_dims(img_rgb, axis=0)  # shape: (1, H, W, C)
+    
+    image_quality_qalign = calculate_image_quality(Qalign_model,img_np)#
+    image_quality_qualiclip = calculate_image_quality_qualiclip(Qualiclip_model,img_np)
+
+    if ((image_quality_qalign < qalign_threshold2) &  (image_quality_qualiclip < qualiclip_threshold)) | (image_quality_qalign < qalign_threshold1): 
+        return True 
+    else:
+        return False 
+        
