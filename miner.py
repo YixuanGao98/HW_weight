@@ -127,16 +127,32 @@ class MinerUProcessor:
                             if len(bbox) == 4:
                                 x_min, y_min, x_max, y_max = bbox
                                 
-                                # 确保坐标在合理范围内
-                                height, width = img_with_boxes.shape[:2]
-                                
-                                # 限制坐标在图像范围内
-                                x_min = max(0, int(x_min))
-                                y_min = max(0, int(y_min))
-                                x_max = min(width, int(x_max))
-                                y_max = min(height, int(y_max))
-                                
-                                print(f"  模块 {i} 修正后bbox: [{x_min}, {y_min}, {x_max}, {y_max}]")
+# 确保坐标在合理范围内
+height, width = img_with_boxes.shape[:2]
+
+# --- 修改开始 ---
+# 判断是否为归一化坐标 (假设如果坐标都小于等于1，则是归一化坐标)
+if all(x <= 1.0 for x in [x_min, y_min, x_max, y_max]):
+    print(f"  检测到归一化坐标，正在转换...")
+    x_min = int(x_min * width)
+    x_max = int(x_max * width)
+    y_min = int(y_min * height)
+    y_max = int(y_max * height)
+else:
+    # 已经是像素坐标，直接取整
+    x_min = int(x_min)
+    y_min = int(y_min)
+    x_max = int(x_max)
+    y_max = int(y_max)
+
+# 限制坐标在图像范围内 (防止越界)
+x_min = max(0, min(x_min, width - 1))
+y_min = max(0, min(y_min, height - 1))
+x_max = max(0, min(x_max, width - 1))
+y_max = max(0, min(y_max, height - 1))
+# --- 修改结束 ---
+
+print(f"  模块 {i} 修正后bbox: [{x_min}, {y_min}, {x_max}, {y_max}]")
                                 
                                 # 绘制边界框
                                 color = (0, 255, 0)  # 绿色 (BGR格式)
