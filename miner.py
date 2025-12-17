@@ -1,5 +1,5 @@
 
-
+https://www.paddlepaddle.org.cn/packages/stable/cu126/
 import io
 import asyncio
 import aiofiles
