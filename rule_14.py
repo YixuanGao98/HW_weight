@@ -1,452 +1,673 @@
+# # import io
+# # import asyncio
+# # import aiofiles
+# # import os
+# # os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+# # from vllm.v1.engine.async_llm import AsyncLLM
+# # from vllm.engine.arg_utils import AsyncEngineArgs
+# # from PIL import Image
+# # from mineru_vl_utils import MinerUClient
+# # from mineru_vl_utils import MinerULogitsProcessor  # if vllm>=0.10.1
+
+# # async_llm = AsyncLLM.from_engine_args(
+# #     AsyncEngineArgs(
+# #         model="opendatalab/MinerU2.5-2509-1.2B",
+# #         logits_processors=[MinerULogitsProcessor]  # if vllm>=0.10.1
+# #     )
+# # )
+
+# # client = MinerUClient(
+# #   backend="vllm-async-engine",
+# #   vllm_async_llm=async_llm,
+# # )
+
+# # async def main():
+# #     image_path = "/home/wsw/gyx/code_11.28/test_data/排布间距/20241212112442EECEB9747D62434FBDC1F1CA71BE7829 (1).jpg"
+# #     async with aiofiles.open(image_path, "rb") as f:
+# #         image_data = await f.read()
+# #     image = Image.open(io.BytesIO(image_data))
+# #     extracted_blocks = await client.aio_two_step_extract(image)
+# #     print(extracted_blocks)
+
+# # asyncio.run(main())
+
+# # async_llm.shutdown()
+# # import io
+# # import asyncio
+# # import aiofiles
+
+# # from vllm.v1.engine.async_llm import AsyncLLM
+# # from vllm.engine.arg_utils import AsyncEngineArgs
+# # from PIL import Image
+# # from mineru_vl_utils import MinerUClient
+# # from mineru_vl_utils import MinerULogitsProcessor  # if vllm>=0.10.1
+
+# # async_llm = AsyncLLM.from_engine_args(
+# #     AsyncEngineArgs(
+# #         model='/mnt/sdc/gyx_data/checkpoint/MinerU2.5-2509-1.2B',
+# #         logits_processors=[MinerULogitsProcessor]  # if vllm>=0.10.1
+# #     )
+# # )
+
+# # client = MinerUClient(
+# #   backend="vllm-async-engine",
+# #   vllm_async_llm=async_llm,
+# # )
+
+# # async def main():
+# #     image_path = "/home/gyx/hw_ad/g00644659_102_192666639_10_20241120212945.jpg"
+# #     async with aiofiles.open(image_path, "rb") as f:
+# #         image_data = await f.read()
+# #     image = Image.open(io.BytesIO(image_data))
+# #     extracted_blocks = await client.aio_two_step_extract(image)
+# #     print(extracted_blocks)
+
+# # asyncio.run(main())
+
+# # async_llm.shutdown()
+
+
+# # import io
+# # import asyncio
+# # import aiofiles
+# # from vllm.v1.engine.async_llm import AsyncLLM
+# # from vllm.engine.arg_utils import AsyncEngineArgs
+# # from PIL import Image
+# # from mineru_vl_utils import MinerUClient, MinerULogitsProcessor
+# # import os
+# # os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+# # async def main():
+# #     # 创建 async_llm
+# #     async_llm = AsyncLLM.from_engine_args(
+# #         AsyncEngineArgs(
+# #             model="opendatalab/MinerU2.5-2509-1.2B",
+# #             logits_processors=[MinerULogitsProcessor]
+# #         )
+# #     )
+# #     client = MinerUClient(
+# #         backend="vllm-async-engine",
+# #         vllm_async_llm=async_llm,
+# #     )
+
+# #     image_path = "/home/wsw/gyx/code_11.28/test_data/排布间距/20241212112442EECEB9747D62434FBDC1F1CA71BE7829 (1).jpg"
+# #     async with aiofiles.open(image_path, "rb") as f:
+# #         image_data = await f.read()
+# #     image = Image.open(io.BytesIO(image_data))
+# #     extracted_blocks = await client.aio_two_step_extract(image)
+# #     print(extracted_blocks)
+# #     # ✅ 正确：直接调用 shutdown，不要 await
+# #     async_llm.shutdown()
+
+# # if __name__ == "__main__":
+# #     asyncio.run(main())
+
+
+# import io
+# import asyncio
+# import aiofiles
+# from vllm.v1.engine.async_llm import AsyncLLM
+# from vllm.engine.arg_utils import AsyncEngineArgs
+# from PIL import Image
+# from mineru_vl_utils import MinerUClient, MinerULogitsProcessor
+# import os
+# import cv2
+# # 设置GPU设备
+# os.environ['CUDA_VISIBLE_DEVICES'] = '7'
+
+# class MinerUProcessor:
+#     def __init__(self, model_path="opendatalab/MinerU2.5-2509-1.2B"):
+#         """初始化MinerU处理器"""
+#         self.model_path = model_path
+#         self.async_llm = None
+#         self.client = None
+        
+#     async def initialize(self):
+#         """初始化AsyncLLM和MinerUClient"""
+#         print("正在初始化AsyncLLM...")
+#         # 创建async_llm
+#         self.async_llm = AsyncLLM.from_engine_args(
+#             AsyncEngineArgs(
+#                 model=self.model_path,
+#                 logits_processors=[MinerULogitsProcessor]
+#             )
+#         )
+        
+#         print("正在初始化MinerUClient...")
+#         # 创建client
+#         self.client = MinerUClient(
+#             backend="vllm-async-engine",
+#             vllm_async_llm=self.async_llm,
+#         )
+#         print("初始化完成!")
+        
+#     async def load_image(self, image_path):
+#         """异步加载图片"""
+#         print(f"正在加载图片: {image_path}")
+#         async with aiofiles.open(image_path, "rb") as f:
+#             image_data = await f.read()
+        
+#         # 使用BytesIO创建PIL Image
+#         image = Image.open(io.BytesIO(image_data))
+#         print(f"图片加载完成，尺寸: {image.size}")
+#         return image
+    
+#     async def extract_blocks(self, image_path):
+#         """完整的提取流程：加载图片 -> 提取块"""
+#         try:
+#             # 1. 确保已初始化
+#             if self.client is None:
+#                 await self.initialize()
+            
+#             # 2. 加载图片
+#             image = await self.load_image(image_path)
+            
+#             # 3. 提取块
+#             print("正在提取块...")
+#             extracted_blocks = await self.client.aio_two_step_extract(image)
+            
+#             print("提取完成!")
+#             return extracted_blocks
+            
+#         except Exception as e:
+#             print(f"提取过程中出现错误: {e}")
+#             raise
+    
+#     async def process_multiple_images(self, image_paths):
+#         """处理多张图片"""
+#         results = {}
+        
+#         # 先初始化模型
+#         await self.initialize()
+        
+#         for image_path in image_paths:
+#             try:
+#                 print(f"\n处理图片: {image_path}")
+#                 # 加载图片
+#                 image = await self.load_image(image_path)
+                
+#                 # 提取块
+#                 extracted_blocks = await self.client.aio_two_step_extract(image)
+                
+#                 results[image_path] = extracted_blocks
+#                 img = cv2.imread(image_path)
+#                 for i, m in enumerate(extracted_blocks):
+#                     [x_min, y_min, x_max, y_max]=extracted_blocks[i].bbox
+#                     cv2.rectangle(img, (int(x_min), int(y_min)), (int(x_max), int(y_max)), (0, 255, 0), 2)  # 绿色框
+#                     cv2.putText(img, f"Module {i}", (int(x_min), int(y_min) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+#                 output_path = os.path.join("/home/wsw/gyx/code_12.17/layout_paibu", os.path.basename(image_path))
+#                 os.makedirs(os.path.dirname(output_path), exist_ok=True)
+#                 cv2.imwrite(output_path, img)
+#                 print(f"保存带框图像到: {output_path}")
+#                 print(f"图片 {image_path} 处理完成")
+                
+#             except Exception as e:
+#                 print(f"处理图片 {image_path} 时出错: {e}")
+#                 results[image_path] = None
+        
+#         return results
+    
+#     async def shutdown(self):
+#         """关闭资源"""
+#         if self.async_llm is not None:
+#             print("正在关闭AsyncLLM...")
+#             self.async_llm.shutdown()
+#             print("资源已释放")
+
+# async def main():
+#     # 创建处理器实例
+#     processor = MinerUProcessor(model_path="opendatalab/MinerU2.5-2509-1.2B")
+    
+#     try:
+#         # 定义图片路径
+#         image_path = "/home/wsw/gyx/code_11.28/test_data/排布间距/20241212112442EECEB9747D62434FBDC1F1CA71BE7829 (1).jpg"
+        
+#         # 方法1: 使用完整流程
+#         print("=== 方法1: 完整流程 ===")
+#         extracted_blocks = await processor.extract_blocks(image_path)
+#         print(f"提取结果: {extracted_blocks}")
+        
+#         # 方法2: 如果已经初始化，可以直接调用（演示）
+#         print("\n=== 方法2: 分步调用 ===")
+#         # 假设已经初始化，可以这样分步调用
+#         # await processor.initialize()  # 如果已经初始化，可以跳过
+#         # image = await processor.load_image(image_path)
+#         # extracted_blocks = await processor.client.aio_two_step_extract(image)
+#         # print(f"提取结果: {extracted_blocks}")
+        
+#     finally:
+#         # 确保资源被释放
+#         await processor.shutdown()
+
+# async def main_batch(image_paths):
+#     """批量处理图片的示例"""
+    
+    
+    
+#     processor = MinerUProcessor(model_path="opendatalab/MinerU2.5-2509-1.2B")
+    
+#     try:
+#         # # 多个图片路径
+#         # image_paths = [
+#         #     "/home/wsw/gyx/code_11.28/test_data/排布间距/20241212112442EECEB9747D62434FBDC1F1CA71BE7829 (1).jpg",
+#         #     # 可以添加更多图片路径
+#         #     # "/path/to/another/image.jpg",
+#         # ]
+        
+#         print("批量处理图片...")
+#         results = await processor.process_multiple_images(image_paths)
+        
+#         print("\n处理结果汇总:")
+#         for path, blocks in results.items():
+#             print(f"\n图片: {path}")
+#             print(f"提取的块: {blocks}")
+            
+#     finally:
+#         await processor.shutdown()
+
+# if __name__ == "__main__":
+#     # 运行单个图片处理
+#     # asyncio.run(main())
+    
+#     # 如果要运行批量处理，取消下面的注释
+    
+#     folders = ["/home/wsw/gyx/code_11.28/test_data/排布间距"]
+#     image_files = []
+
+#     for folder in folders:
+#         for root, _, files in os.walk(folder):
+#             for file in files:
+#                 if file.lower().endswith(('.png', '.jpg', '.jpeg')):  # 只处理图像文件
+#                     image_files.append(os.path.join(root, file))
+#     asyncio.run(main_batch(image_files))
+
+
+import io
+import asyncio
+import aiofiles
+from vllm.v1.engine.async_llm import AsyncLLM
+from vllm.engine.arg_utils import AsyncEngineArgs
+from PIL import Image
+from mineru_vl_utils import MinerUClient, MinerULogitsProcessor
+import os
 import cv2
 import numpy as np
-import math
-# 如果你没有安装 paddleocr，请注释掉下面这几行，直接使用我模拟的 blocks 数据测试
-try:
-    from paddleocr import PaddleOCRVL
-    HAS_PADDLE = True
-except ImportError:
-    HAS_PADDLE = False
-    print("未检测到 PaddleOCR 环境，将使用模拟数据演示距离计算逻辑。")
+import json
 
-def setup_ocr():
-    """初始化模型"""
-    if not HAS_PADDLE:
-        return None
+# 设置GPU设备
+os.environ['CUDA_VISIBLE_DEVICES'] = '7'
+
+class MinerUProcessor:
+    def __init__(self, model_path="opendatalab/MinerU2.5-2509-1.2B"):
+        """初始化MinerU处理器"""
+        self.model_path = model_path
+        self.async_llm = None
+        self.client = None
         
-    model_path = "/home/wsw/jikaiyuan/stage2/code/code_2025_12_18/PaddleOCR-VL"
-    # 目录下需要包含 pdmodel, pdiparams, infer_cfg.yml
-    ocr = PaddleOCRVL(
-        vl_rec_model_dir=model_path,
-        layout_detection_model_dir="/home/wsw/jikaiyuan/stage2/code/code_2025_12_18/PaddleOCR-VL/PP-DocLayoutV2"
-    )
-    return ocr
-
-def _extract_text_blocks_from_ocr_(ocr_results):
-    """提取文本块逻辑"""
-    blocks = []
-    # 适配 PaddleOCR-VL 的返回结构
-    # 注意：根据版本不同，有时直接是 list，有时是对象。这里沿用你提供的逻辑。
-    if hasattr(ocr_results, 'json'): # 单个结果对象
-        res_list = [ocr_results]
-    elif isinstance(ocr_results, list):
-        res_list = ocr_results
-    else:
-        res_list = []
-
-    for r in res_list:
-        # 兼容不同层级的返回格式
-        parsing_list = r.json["res"]["parsing_res_list"] if hasattr(r, 'json') else r.get("res", {}).get("parsing_res_list", [])
+    async def initialize(self):
+        """初始化AsyncLLM和MinerUClient"""
+        print("正在初始化AsyncLLM...")
+        # 创建async_llm
+        self.async_llm = AsyncLLM.from_engine_args(
+            AsyncEngineArgs(
+                model=self.model_path,
+                logits_processors=[MinerULogitsProcessor]
+            )
+        )
         
-        for block in parsing_list:
-            # 过滤空内容
-            if not block.get("block_content", "").strip():
-                continue
-            blocks.append(block)
-    return blocks
-
-def calculate_min_distance(bbox1, bbox2):
-    """
-    计算两个矩形框之间的最短距离 (Edge-to-Edge)
-    bbox 格式: [xmin, ymin, xmax, ymax]
-    """
-    l1, t1, r1, b1 = bbox1
-    l2, t2, r2, b2 = bbox2
+        print("正在初始化MinerUClient...")
+        # 创建client
+        self.client = MinerUClient(
+            backend="vllm-async-engine",
+            vllm_async_llm=self.async_llm,
+        )
+        print("初始化完成!")
+        
+    async def load_image(self, image_path):
+        """异步加载图片，返回 PIL Image 和 OpenCV 格式"""
+        print(f"正在加载图片: {image_path}")
+        async with aiofiles.open(image_path, "rb") as f:
+            image_data = await f.read()
+        
+        # 使用BytesIO创建PIL Image
+        pil_image = Image.open(io.BytesIO(image_data))
+        
+        # 转换为 OpenCV 格式 (BGR)
+        cv_image = cv2.imread(image_path)  # 直接使用 OpenCV 读取
+        
+        if cv_image is None:
+            # 如果 OpenCV 读取失败，从 PIL 转换
+            cv_image = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2BGR)
+        
+        print(f"图片加载完成，PIL尺寸: {pil_image.size}, OpenCV形状: {cv_image.shape}")
+        return pil_image, cv_image
     
-    # 1. 计算水平方向的间距 (x_gap)
-    # 如果两个块在水平方向有重叠，gap 为 0；否则为 l2-r1 或 l1-r2
-    x_gap = max(0, l2 - r1, l1 - r2)
-    
-    # 2. 计算垂直方向的间距 (y_gap)
-    y_gap = max(0, t2 - b1, t1 - b2)
-    
-    # 3. 欧几里得距离
-    dist = math.sqrt(x_gap**2 + y_gap**2)
-    
-    return dist, x_gap, y_gap
-
-def analyze_layout_distances(blocks):
-    """
-    分析所有 Block 之间的距离
-    """
-    n = len(blocks)
-    print(f"\n--- 开始计算 {n} 个文本块之间的距离 ---\n")
-    
-    results = []
-    
-    for i in range(n):
-        block_a = blocks[i]
-        bbox_a = block_a['block_bbox']
-        content_a = block_a['block_content']
-        
-        # 寻找最近的邻居
-        min_dist = float('inf')
-        nearest_idx = -1
-        
-        # 存储该 block 与其他所有 block 的距离
-        distances = []
-        
-        for j in range(n):
-            if i == j:
-                continue
-                
-            block_b = blocks[j]
-            bbox_b = block_b['block_bbox']
-            content_b = block_b['block_content']
-            
-            # 计算距离
-            dist, dx, dy = calculate_min_distance(bbox_a, bbox_b)
-            
-            distances.append({
-                'target_index': j,
-                'target_content': content_b,
-                'distance': dist,
-                'dx': dx,
-                'dy': dy
-            })
-            
-            # 更新最近邻居
-            if dist < min_dist:
-                min_dist = dist
-                nearest_idx = j
-        
-        # 打印当前 Block 的分析结果
-        print(f"Block {i} [{content_a[:10]}...]:")
-        if nearest_idx != -1:
-            nearest_content = blocks[nearest_idx]['block_content']
-            print(f"  -> 最近邻居: Block {nearest_idx} [{nearest_content[:10]}...]")
-            print(f"  -> 最短距离: {min_dist:.2f} px")
-        
-        # 如果需要打印所有距离（可选，如果 block 太多建议注释掉）
-        # for d in distances:
-        #     print(f"     vs Block {d['target_index']}: dist={d['distance']:.1f} (dx={d['dx']}, dy={d['dy']})")
-            
-        results.append({
-            'source_index': i,
-            'nearest_index': nearest_idx,
-            'min_distance': min_dist,
-            'all_distances': distances
-        })
-        print("-" * 30)
-        
-    return results
-
-# ==========================================
-# 主程序
-# ==========================================
-
-if __name__ == "__main__":
-    # 1. 尝试初始化 OCR 并读取图片
-    ocr = setup_ocr()
-    blocks = []
-
-    if ocr:
-        print("正在运行 OCR 推理...")
-        test_image = "/home/wsw/gyx/code_11.28/test_data/排布间距/20241212112442EECEB9747D62434FBDC1F1CA71BE7829 (1).jpg"
-        
+    async def extract_blocks(self, image_path):
+        """完整的提取流程：加载图片 -> 提取块"""
         try:
-            img = cv2.imread(test_image)
-            if img is None:
-                raise FileNotFoundError(f"无法读取图片: {test_image}")
-                
-            results = ocr.predict(img)
-            blocks = _extract_text_blocks_from_ocr_(results)
-            print(f"成功提取 {len(blocks)} 个文本块。")
+            # 1. 确保已初始化
+            if self.client is None:
+                await self.initialize()
+            
+            # 2. 加载图片
+            pil_image, cv_image = await self.load_image(image_path)
+            
+            # 3. 提取块
+            print("正在提取块...")
+            extracted_blocks = await self.client.aio_two_step_extract(pil_image)
+            
+            print("提取完成!")
+            return extracted_blocks, cv_image
             
         except Exception as e:
-            print(f"OCR 运行出错: {e}")
-    else:
-        # 2. 如果没有环境，使用你提供的模拟数据进行测试（为了演示代码逻辑）
-        print("使用模拟数据演示...")
-        blocks = [
-            {'block_label': 'paragraph_title', 'block_content': '00首经典老歌', 'block_bbox': [100, 50, 300, 80], 'block_id': 0}, 
-            {'block_label': 'text', 'block_content': '1.雾里看花', 'block_bbox': [100, 100, 200, 130], 'block_id': 1}, 
-            {'block_label': 'text', 'block_content': '2. 灰姑娘', 'block_bbox': [300, 100, 400, 130], 'block_id': 2},
-            {'block_label': 'text', 'block_content': '3. 下沙', 'block_bbox': [100, 150, 200, 180], 'block_id': 3}
-        ]
-
-    # 3. 核心功能：计算距离
-    if blocks:
-        dist_results = analyze_layout_distances(blocks)
+            print(f"提取过程中出现错误: {e}")
+            raise
+    
+    async def process_multiple_images(self, image_paths):
+        """处理多张图片"""
+        results = {}
         
-        # 示例：获取 Block 1 到 Block 2 的具体距离
-        if len(blocks) >= 3:
-            b1 = blocks[1]['block_bbox']
-            b2 = blocks[2]['block_bbox']
-            d, dx, dy = calculate_min_distance(b1, b2)
-            print(f"\n[特定查询] Block 1 和 Block 2 之间的距离: {d:.2f} (水平间距: {dx}, 垂直间距: {dy})")
-            
-            
-            
-            
-            import cv2
-import numpy as np
-from paddleocr import PaddleOCRVL
-model_path = "/home/wsw/jikaiyuan/stage2/code/code_2025_12_18/PaddleOCR-VL"
-# 目录下需要包含 pdmodel, pdiparams, infer_cfg.yml
+        # 先初始化模型
+        await self.initialize()
+        
+        for image_path in image_paths:
+            image_path='/home/wsw/gyx/code_11.28/test_data/排布间距/2025091704124681414A4C7CF24648B3109557C45D065B.jpg'
+            text_boxes = []
+            try:
+                print(f"\n{'='*50}")
+                print(f"处理图片: {image_path}")
+                
+                # 加载图片
+                pil_image, cv_image = await self.load_image(image_path)
+                
+                # 提取块
+                extracted_blocks = await self.client.aio_two_step_extract(pil_image)
+                
+                # 调试：打印提取结果
+                print(f"提取到 {len(extracted_blocks)} 个模块")
+                
+                if len(extracted_blocks) > 0:
+                    print("\n模块详细信息:")
+                    for i, block in enumerate(extracted_blocks):
+                        print(f"模块 {i}:")
+                        print(f"  BBox: {block.bbox}")
+                        print(f"  类型: {block.type}")
+                #         # print(f"  内容: {block.content[:50]}...")  # 只显示前50个字符
+                
+                results[image_path] = extracted_blocks
+                
+                # 在图像上绘制边界框
+                img_with_boxes = cv_image.copy()
+                
+                if len(extracted_blocks) > 0:
+                    # print("\n正在绘制边界框...")
+                    
+                    for i, block in enumerate(extracted_blocks):
+                        try:
+                            # 获取边界框坐标
+                            bbox = block.bbox
+                            # print(f"  模块 {i} 原始bbox: {bbox}")
+                            
+                            # 确保 bbox 是 [x_min, y_min, x_max, y_max] 格式
+                            if len(bbox) == 4:
+                                x_min, y_min, x_max, y_max = bbox
+                                
+                                # 确保坐标在合理范围内
+                                height, width = img_with_boxes.shape[:2]
 
-ocr = PaddleOCRVL(
-    vl_rec_model_dir = model_path,   # 这个目录必须包含 pdmodel, pdiparams, infer_cfg.yml
-    layout_detection_model_dir = "/home/wsw/jikaiyuan/stage2/code/code_2025_12_18/PaddleOCR-VL/PP-DocLayoutV2"
-)
+                                # --- 修改开始 ---
+                                # 判断是否为归一化坐标 (假设如果坐标都小于等于1，则是归一化坐标)
+                                if all(x <= 1.0 for x in [x_min, y_min, x_max, y_max]):
+                                    # print(f"  检测到归一化坐标，正在转换...")
+                                    x_min = int(x_min * width)
+                                    x_max = int(x_max * width)
+                                    y_min = int(y_min * height)
+                                    y_max = int(y_max * height)
+                                else:
+                                    # 已经是像素坐标，直接取整
+                                    x_min = int(x_min)
+                                    y_min = int(y_min)
+                                    x_max = int(x_max)
+                                    y_max = int(y_max)
 
-def _extract_text_blocks_from_ocr_(ocr_results):
-    """
-    从 OCR 结果中提取非 image 的文本块，返回 list[dict]，每个 dict 至少包含：
-    - block_content
-    - block_bbox = [x1, y1, x2, y2]
-    """
-    blocks = []
-    for r in ocr_results:
-        parsing_list = r.json["res"]["parsing_res_list"]
-        for block in parsing_list:
-            # if block.get("block_label") == "image":
-            #     continue
-            if not block.get("block_content", "").strip():
-                continue
-            blocks.append(block)
-    return blocks
+                                # 限制坐标在图像范围内 (防止越界)
+                                x_min = max(0, min(x_min, width - 1))
+                                y_min = max(0, min(y_min, height - 1))
+                                x_max = max(0, min(x_max, width - 1))
+                                y_max = max(0, min(y_max, height - 1))
+                                # --- 修改结束 ---
+                                text_boxes.append([x_min, y_min, x_max, y_max])
+                                                                
+                                # 绘制边界框
+                                color = (0, 255, 0)  # 绿色 (BGR格式)
+                                thickness = 2
+                                cv2.rectangle(img_with_boxes, 
+                                            (x_min, y_min), 
+                                            (x_max, y_max), 
+                                            color, thickness)
+                                
+                                # 添加模块编号标签
+                                label = f"Module {i}"
+                                font = cv2.FONT_HERSHEY_SIMPLEX
+                                font_scale = 0.5
+                                label_thickness = 2
+                                
+                                # 计算文本大小
+                                (text_width, text_height), baseline = cv2.getTextSize(
+                                    label, font, font_scale, label_thickness
+                                )
+                                
+                                # 绘制文本背景
+                                cv2.rectangle(img_with_boxes,
+                                            (x_min, y_min - text_height - 10),
+                                            (x_min + text_width, y_min),
+                                            color, -1)  # -1 表示填充
+                                
+                                # 绘制文本
+                                cv2.putText(img_with_boxes, label,
+                                          (x_min, y_min - 5),
+                                          font, font_scale,
+                                          (0, 0, 0),  # 黑色文本
+                                          label_thickness)
+                                
+                                # print(f"  模块 {i} 边界框已绘制")
+                            else:
+                                print(f"  模块 {i} 的bbox格式不正确: {bbox}")
+                                
+                        except Exception as e:
+                            print(f"  绘制模块 {i} 时出错: {e}")
+                            continue
+                else:
+                    print("警告: 未提取到任何模块!")
+                    # 在没有模块时，添加一个提示文本
+                    cv2.putText(img_with_boxes, "No modules detected",
+                              (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1,
+                              (0, 0, 255), 2)
+                
+                
+                
+                
+                # 保存带框图像
+                output_dir = "/home/wsw/gyx/code_12.17/layout_paibu_normal"
+                os.makedirs(output_dir, exist_ok=True)
+                
+                # 生成输出文件名
+                base_name = os.path.basename(image_path)
+                name_without_ext = os.path.splitext(base_name)[0]
+                output_path = os.path.join(output_dir, f"{name_without_ext}_annotated.jpg")
+                
+                # 保存图像
+                cv2.imwrite(output_path, img_with_boxes)
+                print(f"保存带框图像到: {output_path}")
+                
+                # # 同时保存JSON结果
+                # json_path = os.path.join(output_dir, f"{name_without_ext}_results.json")
+                # json_results = []
+                # for block in extracted_blocks:
+                #     json_results.append({
+                #         "bbox": block.bbox,
+                #         "type": block.type,
+                #         # "content": block.content[:500]  # 限制内容长度
+                #     })
+                
+                # with open(json_path, 'w', encoding='utf-8') as f:
+                #     json.dump(json_results, f, ensure_ascii=False, indent=2)
+                # print(f"保存结果到: {json_path}")
+                
+                print(f"图片 {image_path} 处理完成")
+                
+            except Exception as e:
+                print(f"处理图片 {image_path} 时出错: {e}")
+                import traceback
+                traceback.print_exc()
+                results[image_path] = None
+        
+            # 汇总所有模块
+            modules = []  
+            for i, b in enumerate(text_boxes):
+                if extracted_blocks[i].type=='image':
+                    modules.append({'type': 'image', 'box': b})
+                else:
+                    modules.append({'type': 'text', 'box': b})
+        
+        return modules
+    
+    async def shutdown(self):
+        """关闭资源"""
+        if self.async_llm is not None:
+            print("正在关闭AsyncLLM...")
+            self.async_llm.shutdown()
+            print("资源已释放")
 
-# ========= OCR 文本块 =========
-test_image = "/home/wsw/gyx/code_11.28/test_data/排布间距/20241212112442EECEB9747D62434FBDC1F1CA71BE7829 (1).jpg"
-img=cv2.imread(test_image)
-results = ocr.predict(img)
-blocks = _extract_text_blocks_from_ocr_(results)
-print(blocks)
-[{'block_label': 'paragraph_title', 'block_content': '00首经典老歌', 'block_bbox': [...], 'block_id': 0, 'block_order': 1}, {'block_label': 'text', 'block_content': '1.雾里看花', 'block_bbox': [...], 'block_id': 1, 'block_order': 2}, {'block_label': 'text', 'block_content': '2. 灰姑娘', 'block_bbox': [...], 'block_id': 2, 'block_order': 3}, {'block_label': 'text', 'block_content': '3. 下沙', 'block_bbox': [...], 'block_id': 3, 'block_order': 4}, {'block_label': 'text', 'block_content': '5.心雨', 'block_bbox': [...], 'block_id': 4, 'block_order': 5}, {'block_label': 'text', 'block_content': '7.外面的世界', 'block_bbox': [...], 'block_id': 5, 'block_order': 6}, {'block_label': 'text', 'block_content': '9. 安妮', 'block_bbox': [...], 'block_id': 6, 'block_order': 7}, {'block_label': 'text', 'block_content': '11.禁锢', 'block_bbox': [...], 'block_id': 7, 'block_order': 8}, {'block_label': 'text', 'block_content': '13.女人花', 'block_bbox': [...], 'block_id': 8, 'block_order': 9}, {'block_label': 'text', 'block_content': '15. 红豆', 'block_bbox': [...], 'block_id': 9, 'block_order': 10}, {'block_label': 'text', 'block_content': '4. 舞女泪', 'block_bbox': [...], 'block_id': 10, 'block_order': 11}, {'block_label': 'text', 'block_content': '6. 海阔天空', 'block_bbox': [...], 'block_id': 11, 'block_order': 12}, {'block_label': 'text', 'block_content': '8. 单身情歌', 'block_bbox': [...], 'block_id': 12, 'block_order': 13}, {'block_label': 'text', 'block_content': '10.心如刀割', 'block_bbox': [...], 'block_id': 13, 'block_order': 14}, {'block_label': 'text', 'block_content': '12. 大中国', 'block_bbox': [...], 'block_id': 14, 'block_order': 15}, {'block_label': 'text', 'block_content': '14.约定', 'block_bbox': [...], 'block_id': 15, 'block_order': 16}, {'block_label': 'text', 'block_content': '16. 恋曲1990', 'block_bbox': [...], 'block_id': 16, 'block_order': 17}, {'block_label': 'text', 'block_content': '听一听 >', 'block_bbox': [...], 'block_id': 17, 'block_order': 18}, {'block_label': 'text', 'block_content': '000', 'block_bbox': [...], 'block_id': 18, 'block_order': 19}]
+def test_single_image():
+    """测试单张图片的边界框绘制"""
+    test_image_path = "/home/wsw/gyx/code_11.28/test_data/排布间距/20241212112442EECEB9747D62434FBDC1F1CA71BE7829 (1).jpg"
+    
+    # 简单测试：先不用异步，直接检查图像
+    print("测试单张图片...")
+    
+    # 读取图像
+    cv_image = cv2.imread(test_image_path)
+    if cv_image is None:
+        print("错误: 无法读取图像")
+        return
+    
+    print(f"图像尺寸: {cv_image.shape}")
+    
+    # 手动添加一个测试边界框（确认OpenCV工作正常）
+    height, width = cv_image.shape[:2]
+    test_box = [100, 100, 300, 200]  # [x_min, y_min, x_max, y_max]
+    
+    # 绘制测试框
+    x_min, y_min, x_max, y_max = test_box
+    cv2.rectangle(cv_image, (x_min, y_min), (x_max, y_max), (0, 0, 255), 3)  # 红色框
+    
+    # 保存测试图像
+    test_output = "/home/wsw/gyx/code_12.17/layout_paibu/test_box.jpg"
+    cv2.imwrite(test_output, cv_image)
+    print(f"测试图像已保存到: {test_output}")
+    print("请检查这个测试图像是否包含红色边界框")
+    
+    # 如果测试图像正常，说明OpenCV工作正常
+    # 问题可能在提取的blocks为空或坐标格式不对
 
-
-import cv2
-import numpy as np
-from paddleocr import PaddleOCRVL
-
-def _extract_text_blocks_from_ocr_(ocr_results):
-    """
-    从 OCR 结果中提取非 image 的文本块，返回 list[dict]，每个 dict 至少包含：
-    - block_content
-    - block_bbox = [x1, y1, x2, y2]
-    """
-    blocks = []
-    for r in ocr_results:
-        parsing_list = r.json["res"]["parsing_res_list"]
-        for block in parsing_list:
-            if block.get("block_label") == "image":
-                continue
-            if not block.get("block_content", "").strip():
-                continue
-            blocks.append(block)
-    return blocks
-
-
-def is_text_design_uncoordinated_image(
-    img,
-    ocr,
-    bg_uniform_ratio_thresh=0.7,      # KMeans 主色占比分数（色块）
-    bg_uniform_std_thresh=12.0,       # 主色亮度 std（越小越均匀）
-    context_edge_ratio_thresh=1.3,    # 背景复杂度 / ROI 复杂度
-    multihue_delta_h_thresh=25.0,     # 字体多色 ΔH 阈值
-    plate_sat_mean_thresh=80.0,       # 色块饱和度均值下限
-    plate_edge_simple_thresh=5.0,     # ROI 边缘密度上限（越小越平滑）
-    plate_val_std_thresh=18.0,        # 色块亮度方差上限（避免照片纹理）
-    color_clash_delta_h_thresh=30.0   # 色块主色与全局主色的最小色相差
-):
-    """
-    文字-设计搭配协调（增强版启发式）：
-
-    子规则：
-    A) 色块承载文案且色块颜色与整体调性差异较大（突兀色块）
-    B) 色块叠加在相对复杂的背景上（原规则）
-    C) 字体存在明显多色/渐变（粗略）
-
-    True  = 命中任意子规则（疑似设计不协调）
-    False = 暂未发现明显问题
-    """
-    h_img, w_img = img.shape[:2]
-
-    # ========= 全局调色板（整图主色） =========
-    # 下采样，避免计算太慢
-    if w_img > 0 and h_img > 0:
-        scale = 128.0 / max(w_img, h_img)
-        new_w = max(1, int(w_img * scale))
-        new_h = max(1, int(h_img * scale))
-        small = cv2.resize(img, (new_w, new_h), interpolation=cv2.INTER_AREA)
-        small_hsv = cv2.cvtColor(small, cv2.COLOR_BGR2HSV)
-        Zg = small_hsv.reshape(-1, 3).astype(np.float32)
-
-        Kg = 3
-        criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER,
-                    10, 1.0)
-        compact_g, labels_g, centers_g = cv2.kmeans(
-            Zg, Kg, None, criteria, 3, cv2.KMEANS_PP_CENTERS
-        )
-        global_hues = [float(c[0]) for c in centers_g]  # H 通道中心
-    else:
-        global_hues = []
-
-    print("====== 全局调色板 Hue 中心（0-180）======")
-    if global_hues:
-        print("Global Hues:", ", ".join(f"{h:.1f}" for h in global_hues))
-    else:
-        print("Global Hues: (图像尺寸异常，无法计算)")
-    print("=====================================")
-
-    # ========= OCR 文本块 =========
-    results = ocr.predict(img)
-    blocks = _extract_text_blocks_from_ocr_(results)
-
-    if not blocks:
-        print("没有检测到文本块，视为正常。")
-        return False
-
-    issue_found = False
-
-    for idx, block in enumerate(blocks):
-        x1, y1, x2, y2 = block["block_bbox"]
-        x1 = max(0, int(x1))
-        y1 = max(0, int(y1))
-        x2 = min(w_img, int(x2))
-        y2 = min(h_img, int(y2))
-
-        bw = x2 - x1
-        bh = y2 - y1
-        if bw < 20 or bh < 10:
-            print(f"[块 {idx}] bbox 太小 ({bw}x{bh})，跳过。")
-            continue
-
-        roi = img[y1:y2, x1:x2]
-        roi_hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
-        Z = roi_hsv.reshape(-1, 3).astype(np.float32)
-
-        # ---- ROI 基本统计 ----
-        H = Z[:, 0]
-        S = Z[:, 1]
-        V = Z[:, 2]
-        sat_mean = float(S.mean())
-        sat_std  = float(S.std())
-        val_mean = float(V.mean())
-        val_std  = float(V.std())
-
-        # ---- Step 1: KMeans 分色，主色统计 ----
-        K = 3
-        criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER,
-                    10, 1.0)
-        compact, labels, centers = cv2.kmeans(
-            Z, K, None, criteria, 3, cv2.KMEANS_PP_CENTERS
-        )
-        labels = labels.flatten()
-        counts = np.bincount(labels, minlength=K)
-        total = counts.sum()
-        dom_idx = int(np.argmax(counts))
-        dom_ratio = counts[dom_idx] / float(total + 1e-6)
-        dom_pixels = Z[labels == dom_idx]
-        bg_std = float(dom_pixels[:, 2].std()) if len(dom_pixels) > 0 else 999.0
-        dom_h = float(centers[dom_idx, 0])
-        dom_s = float(centers[dom_idx, 1])
-        dom_v = float(centers[dom_idx, 2])
-
-        # ---- Step 2: ROI & context 边缘密度 ----
-        pad = int(0.05 * max(w_img, h_img))
-        x1c = max(0, x1 - pad)
-        y1c = max(0, y1 - pad)
-        x2c = min(w_img, x2 + pad)
-        y2c = min(h_img, y2 + pad)
-
-        context = img[y1c:y2c, x1c:x2c]
-
-        gray_roi = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
-        edges_roi = cv2.Canny(gray_roi, 100, 200)
-        roi_edge_density = float(edges_roi.mean())
-
-        gray_ctx = cv2.cvtColor(context, cv2.COLOR_BGR2GRAY)
-        edges_ctx = cv2.Canny(gray_ctx, 100, 200)
-        ctx_edge_density = float(edges_ctx.mean())
-
-        complex_around = (
-            ctx_edge_density > roi_edge_density * context_edge_ratio_thresh
-            and ctx_edge_density > 10
-        )
-
-        # ---- Step 3: “色块”判定（两路） ----
-        # 3.1 KMeans 主色法（原逻辑）
-        plate_kmeans = (
-            dom_ratio > bg_uniform_ratio_thresh and bg_std < bg_uniform_std_thresh
-        )
-
-        # 3.2 平滑高饱和度法（新增）
-        plate_smooth = (
-            sat_mean > plate_sat_mean_thresh
-            and roi_edge_density < plate_edge_simple_thresh
-            and val_std < plate_val_std_thresh
-        )
-
-        has_color_plate = plate_kmeans or plate_smooth
-
-        # ---- Step 4: 色块与全局调色板的色差 ----
-        if global_hues:
-            delta_hs = [abs(dom_h - gh) for gh in global_hues]
-            min_delta_h_global = float(min(delta_hs))
+async def debug_extraction(image_path):
+    """调试提取过程"""
+    processor = MinerUProcessor(model_path="opendatalab/MinerU2.5-2509-1.2B")
+    
+    try:
+        await processor.initialize()
+        
+        # 加载图片
+        pil_image, cv_image = await processor.load_image(image_path)
+        
+        # 提取块
+        print("正在提取块...")
+        extracted_blocks = await processor.client.aio_two_step_extract(pil_image)
+        
+        print(f"\n提取结果分析:")
+        print(f"提取到 {len(extracted_blocks)} 个模块")
+        
+        if len(extracted_blocks) == 0:
+            print("警告: 没有提取到任何模块!")
+            print("可能原因:")
+            print("1. 图像中没有可识别的模块")
+            print("2. 模型参数可能需要调整")
+            print("3. 图像质量或格式问题")
         else:
-            min_delta_h_global = 0.0
+            # 详细打印每个模块的信息
+            for i, block in enumerate(extracted_blocks):
+                print(f"\n模块 {i}:")
+                print(f"  BBox: {block.bbox}")
+                print(f"  Type: {block.type}")
+                # print(f"  Content (前100字符): {block.content[:100]}")
+                
+                # 检查BBox格式
+                if hasattr(block.bbox, '__len__'):
+                    print(f"  BBox长度: {len(block.bbox)}")
+                    if len(block.bbox) >= 4:
+                        x_min, y_min, x_max, y_max = block.bbox[:4]
+                        print(f"  坐标范围: x=[{x_min}, {x_max}], y=[{y_min}, {y_max}]")
+                        
+                        # 检查坐标是否合理
+                        height, width = cv_image.shape[:2]
+                        if x_min < 0 or y_min < 0 or x_max > width or y_max > height:
+                            print(f"  警告: 坐标超出图像范围!")
+                        if x_min >= x_max or y_min >= y_max:
+                            print(f"  警告: 坐标值无效 (x_min >= x_max 或 y_min >= y_max)!")
+        
+        return extracted_blocks
+        
+    finally:
+        await processor.shutdown()
 
-        color_clash = (
-            has_color_plate and min_delta_h_global > color_clash_delta_h_thresh
-        )
+async def main_batch(image_paths):
+    """批量处理图片的示例"""
+    processor = MinerUProcessor(model_path="opendatalab/MinerU2.5-2509-1.2B")
+    
+    try:
+        print("批量处理图片...")
+        results = await processor.process_multiple_images(image_paths)
+        
+        print("\n" + "="*50)
+        print("处理结果汇总:")
+        for path, blocks in results.items():
+            print(f"\n图片: {path}")
+            print(f"提取到 {len(blocks) if blocks else 0} 个模块")
+            
+    finally:
+        await processor.shutdown()
 
-        # ---- Step 5: 色块叠加在复杂背景上（子规则 B）----
-        plate_on_complex = has_color_plate and complex_around
-
-        # ---- Step 6: 字体多色 / 渐变（子规则 C）----
-        if plate_kmeans:
-            text_pixels = Z[labels != dom_idx]
-        else:
-            text_pixels = Z
-
-        multihue_font = False
-        delta_h_text = 0.0
-        if len(text_pixels) > 50:
-            Kt = 2
-            compact_t, labels_t, centers_t = cv2.kmeans(
-                text_pixels, Kt, None, criteria, 3, cv2.KMEANS_PP_CENTERS
-            )
-            h_vals = np.sort(centers_t[:, 0])
-            delta_h_text = float(abs(h_vals[1] - h_vals[0]))
-            if delta_h_text > multihue_delta_h_thresh:
-                multihue_font = True
-
-        # ---- Debug 打印当前块的所有中间信息 ----
-        print("\n========== 文本块 idx={} ==========".format(idx))
-        print(f"bbox=({x1},{y1},{x2},{y2}), size=({bw}x{bh}), area_ratio={bw*bh/(w_img*h_img+1e-6):.4f}")
-        print("ROI HSV stats: sat_mean={:.1f}, sat_std={:.1f}, val_mean={:.1f}, val_std={:.1f}".format(
-            sat_mean, sat_std, val_mean, val_std
-        ))
-        print("KMeans 主色: dom_ratio={:.2f}, bg_std(V)={:.2f}, dom_h={:.1f}, dom_s={:.1f}, dom_v={:.1f}".format(
-            dom_ratio, bg_std, dom_h, dom_s, dom_v
-        ))
-        print("Edges: roi_edge={:.2f}, ctx_edge={:.2f}, complex_around={}".format(
-            roi_edge_density, ctx_edge_density, complex_around
-        ))
-        print("Plate flags: plate_kmeans={}, plate_smooth={}, has_color_plate={}".format(
-            plate_kmeans, plate_smooth, has_color_plate
-        ))
-        print("Global color clash: min_delta_h_global={:.1f}, color_clash={}".format(
-            min_delta_h_global, color_clash
-        ))
-        print("Multihue font: delta_h_text={:.1f}, multihue_font={}".format(
-            delta_h_text, multihue_font
-        ))
-
-        # ---- 子规则触发情况 ----
-        rule_A_color_plate_clash = color_clash          # 色块颜色与整体调性差异大
-        rule_B_plate_on_complex  = plate_on_complex     # 色块叠加复杂背景
-        rule_C_multihue_font     = multihue_font        # 多色字体
-
-        print("Rule A (突兀色块):", rule_A_color_plate_clash)
-        print("Rule B (复杂背景上的色块):", rule_B_plate_on_complex)
-        print("Rule C (多色/渐变字体):", rule_C_multihue_font)
-
-        # 有任一子规则命中，就认为这个块有问题
-        if rule_A_color_plate_clash or rule_B_plate_on_complex or rule_C_multihue_font:
-            issue_found = True
-
-    print("\n最终结果（True=存在疑似设计不协调，False=暂未检测到）:", issue_found)
-    return issue_found
+if __name__ == "__main__":
+    # # 第一步：测试OpenCV是否能正常绘制边界框
+    # print("第一步：测试OpenCV功能...")
+    # test_single_image()
+    
+    # # 第二步：调试提取过程
+    # print("\n" + "="*50)
+    # print("第二步：调试提取过程...")
+    # test_image = "/home/wsw/gyx/code_11.28/test_data/排布间距/20241212112442EECEB9747D62434FBDC1F1CA71BE7829 (1).jpg"
+    # asyncio.run(debug_extraction(test_image))
+    
+    # 第三步：批量处理
+    print("\n" + "="*50)
+    print("第三步：批量处理所有图片...")
+    
+    folders = ["/home/wsw/gyx/code_11.28/test_data/正常-normal_data"]
+    image_files = []
+    
+    for folder in folders:
+        for root, _, files in os.walk(folder):
+            for file in files:
+                if file.lower().endswith(('.png', '.jpg', '.jpeg')):  # 只处理图像文件
+                    image_files.append(os.path.join(root, file))
+    
+    print(f"找到 {len(image_files)} 张图片")
+    
+    # 先处理几张测试
+    if len(image_files) > 0:
+        # 先处理前3张看看效果
+        test_files = image_files
+        print(f"先处理前 {len(test_files)} 张图片作为测试...")
+        asyncio.run(main_batch(test_files))
+    else:
+        print("没有找到图片文件!")
