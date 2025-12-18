@@ -1,5 +1,186 @@
 import cv2
 import numpy as np
+import math
+# 如果你没有安装 paddleocr，请注释掉下面这几行，直接使用我模拟的 blocks 数据测试
+try:
+    from paddleocr import PaddleOCRVL
+    HAS_PADDLE = True
+except ImportError:
+    HAS_PADDLE = False
+    print("未检测到 PaddleOCR 环境，将使用模拟数据演示距离计算逻辑。")
+
+def setup_ocr():
+    """初始化模型"""
+    if not HAS_PADDLE:
+        return None
+        
+    model_path = "/home/wsw/jikaiyuan/stage2/code/code_2025_12_18/PaddleOCR-VL"
+    # 目录下需要包含 pdmodel, pdiparams, infer_cfg.yml
+    ocr = PaddleOCRVL(
+        vl_rec_model_dir=model_path,
+        layout_detection_model_dir="/home/wsw/jikaiyuan/stage2/code/code_2025_12_18/PaddleOCR-VL/PP-DocLayoutV2"
+    )
+    return ocr
+
+def _extract_text_blocks_from_ocr_(ocr_results):
+    """提取文本块逻辑"""
+    blocks = []
+    # 适配 PaddleOCR-VL 的返回结构
+    # 注意：根据版本不同，有时直接是 list，有时是对象。这里沿用你提供的逻辑。
+    if hasattr(ocr_results, 'json'): # 单个结果对象
+        res_list = [ocr_results]
+    elif isinstance(ocr_results, list):
+        res_list = ocr_results
+    else:
+        res_list = []
+
+    for r in res_list:
+        # 兼容不同层级的返回格式
+        parsing_list = r.json["res"]["parsing_res_list"] if hasattr(r, 'json') else r.get("res", {}).get("parsing_res_list", [])
+        
+        for block in parsing_list:
+            # 过滤空内容
+            if not block.get("block_content", "").strip():
+                continue
+            blocks.append(block)
+    return blocks
+
+def calculate_min_distance(bbox1, bbox2):
+    """
+    计算两个矩形框之间的最短距离 (Edge-to-Edge)
+    bbox 格式: [xmin, ymin, xmax, ymax]
+    """
+    l1, t1, r1, b1 = bbox1
+    l2, t2, r2, b2 = bbox2
+    
+    # 1. 计算水平方向的间距 (x_gap)
+    # 如果两个块在水平方向有重叠，gap 为 0；否则为 l2-r1 或 l1-r2
+    x_gap = max(0, l2 - r1, l1 - r2)
+    
+    # 2. 计算垂直方向的间距 (y_gap)
+    y_gap = max(0, t2 - b1, t1 - b2)
+    
+    # 3. 欧几里得距离
+    dist = math.sqrt(x_gap**2 + y_gap**2)
+    
+    return dist, x_gap, y_gap
+
+def analyze_layout_distances(blocks):
+    """
+    分析所有 Block 之间的距离
+    """
+    n = len(blocks)
+    print(f"\n--- 开始计算 {n} 个文本块之间的距离 ---\n")
+    
+    results = []
+    
+    for i in range(n):
+        block_a = blocks[i]
+        bbox_a = block_a['block_bbox']
+        content_a = block_a['block_content']
+        
+        # 寻找最近的邻居
+        min_dist = float('inf')
+        nearest_idx = -1
+        
+        # 存储该 block 与其他所有 block 的距离
+        distances = []
+        
+        for j in range(n):
+            if i == j:
+                continue
+                
+            block_b = blocks[j]
+            bbox_b = block_b['block_bbox']
+            content_b = block_b['block_content']
+            
+            # 计算距离
+            dist, dx, dy = calculate_min_distance(bbox_a, bbox_b)
+            
+            distances.append({
+                'target_index': j,
+                'target_content': content_b,
+                'distance': dist,
+                'dx': dx,
+                'dy': dy
+            })
+            
+            # 更新最近邻居
+            if dist < min_dist:
+                min_dist = dist
+                nearest_idx = j
+        
+        # 打印当前 Block 的分析结果
+        print(f"Block {i} [{content_a[:10]}...]:")
+        if nearest_idx != -1:
+            nearest_content = blocks[nearest_idx]['block_content']
+            print(f"  -> 最近邻居: Block {nearest_idx} [{nearest_content[:10]}...]")
+            print(f"  -> 最短距离: {min_dist:.2f} px")
+        
+        # 如果需要打印所有距离（可选，如果 block 太多建议注释掉）
+        # for d in distances:
+        #     print(f"     vs Block {d['target_index']}: dist={d['distance']:.1f} (dx={d['dx']}, dy={d['dy']})")
+            
+        results.append({
+            'source_index': i,
+            'nearest_index': nearest_idx,
+            'min_distance': min_dist,
+            'all_distances': distances
+        })
+        print("-" * 30)
+        
+    return results
+
+# ==========================================
+# 主程序
+# ==========================================
+
+if __name__ == "__main__":
+    # 1. 尝试初始化 OCR 并读取图片
+    ocr = setup_ocr()
+    blocks = []
+
+    if ocr:
+        print("正在运行 OCR 推理...")
+        test_image = "/home/wsw/gyx/code_11.28/test_data/排布间距/20241212112442EECEB9747D62434FBDC1F1CA71BE7829 (1).jpg"
+        
+        try:
+            img = cv2.imread(test_image)
+            if img is None:
+                raise FileNotFoundError(f"无法读取图片: {test_image}")
+                
+            results = ocr.predict(img)
+            blocks = _extract_text_blocks_from_ocr_(results)
+            print(f"成功提取 {len(blocks)} 个文本块。")
+            
+        except Exception as e:
+            print(f"OCR 运行出错: {e}")
+    else:
+        # 2. 如果没有环境，使用你提供的模拟数据进行测试（为了演示代码逻辑）
+        print("使用模拟数据演示...")
+        blocks = [
+            {'block_label': 'paragraph_title', 'block_content': '00首经典老歌', 'block_bbox': [100, 50, 300, 80], 'block_id': 0}, 
+            {'block_label': 'text', 'block_content': '1.雾里看花', 'block_bbox': [100, 100, 200, 130], 'block_id': 1}, 
+            {'block_label': 'text', 'block_content': '2. 灰姑娘', 'block_bbox': [300, 100, 400, 130], 'block_id': 2},
+            {'block_label': 'text', 'block_content': '3. 下沙', 'block_bbox': [100, 150, 200, 180], 'block_id': 3}
+        ]
+
+    # 3. 核心功能：计算距离
+    if blocks:
+        dist_results = analyze_layout_distances(blocks)
+        
+        # 示例：获取 Block 1 到 Block 2 的具体距离
+        if len(blocks) >= 3:
+            b1 = blocks[1]['block_bbox']
+            b2 = blocks[2]['block_bbox']
+            d, dx, dy = calculate_min_distance(b1, b2)
+            print(f"\n[特定查询] Block 1 和 Block 2 之间的距离: {d:.2f} (水平间距: {dx}, 垂直间距: {dy})")
+            
+            
+            
+            
+            import cv2
+import numpy as np
 from paddleocr import PaddleOCRVL
 model_path = "/home/wsw/jikaiyuan/stage2/code/code_2025_12_18/PaddleOCR-VL"
 # 目录下需要包含 pdmodel, pdiparams, infer_cfg.yml
