@@ -1,54 +1,107 @@
 import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '7'
+
 from transformers import AutoModelForImageTextToText, AutoProcessor
 import torch
-# default: Load the model on the available device(s)
+from tqdm import tqdm
+
+# ===============================
+# 1. 模型与 Processor 加载
+# ===============================
+model_path = "/home/wsw/jikaiyuan/stage2/code/code_2025_12_17/Qwen3-VL-8B-Instruct"
+
 model = AutoModelForImageTextToText.from_pretrained(
-    "/home/wsw/jikaiyuan/stage2/code/code_2025_12_17/Qwen3-VL-8B-Instruct", dtype="auto", device_map="auto"
+    model_path,
+    dtype="auto",
+    device_map="auto"
 )
 
-# We recommend enabling flash_attention_2 for better acceleration and memory saving, especially in multi-image and video scenarios.
-# model = AutoModelForImageTextToText.from_pretrained(
-#     "/home/wsw/jikaiyuan/stage2/code/code_2025_12_17/Qwen3-VL-8B-Instruct",
-#     dtype=torch.bfloat16,
-#     attn_implementation="flash_attention_2",
-#     device_map="auto",
-# )
+processor = AutoProcessor.from_pretrained(model_path)
 
-processor = AutoProcessor.from_pretrained("/home/wsw/jikaiyuan/stage2/code/code_2025_12_17/Qwen3-VL-8B-Instruct")
+# ===============================
+# 2. 输入文件夹
+# ===============================
+image_dir = "/home/wsw/gyx/code_11.28/test_data/排布间距"
+assert os.path.isdir(image_dir)
 
-messages = [
-    {
-        "role": "user",
-        "content": [
-            {
-                "type": "image",
-                "image": "/home/wsw/gyx/code_11.28/test_data/排布间距/20241212112442EECEB9747D62434FBDC1F1CA71BE7829 (1).jpg",
-            },
-            {"type": "text", "text": "1. 请判断这张广告里字与标签logo之间离得太近是否离得太近。2. 请判断这张广告里字与商品之间是否离得太近。如果有一个是的话则认为这张广告图的排版布局不合理，请判断这张图的排版布局是否合理。"},
-        ],
-    }
+image_paths = [
+    os.path.join(image_dir, f)
+    for f in os.listdir(image_dir)
+    if f.lower().endswith((".jpg", ".jpeg", ".png"))
 ]
 
-# Preparation for inference
-inputs = processor.apply_chat_template(
-    messages,
-    tokenize=True,
-    add_generation_prompt=True,
-    return_dict=True,
-    return_tensors="pt"
-)
-inputs = inputs.to(model.device)
+print(f"共发现 {len(image_paths)} 张图片")
 
-# Inference: Generation of the output
-generated_ids = model.generate(**inputs, max_new_tokens=125)
-generated_ids_trimmed = [
-    out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
-]
-output_text = processor.batch_decode(
-    generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
+# ===============================
+# 3. 固定问题模板
+# ===============================
+question_text = (
+    "1. 请判断这张广告里字与标签logo之间是否离得太近。"
+    "2. 请判断这张广告里字与商品之间是否离得太近。"
+    "如果有一个是，则认为这张广告图的排版布局不合理。"
+    "请最终判断这张图的排版布局是否合理。"
 )
-print(output_text)
+
+# ===============================
+# 4. 批量推理
+# ===============================
+results = []
+
+for img_path in tqdm(image_paths, desc="Processing images"):
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "image", "image": img_path},
+                {"type": "text", "text": question_text},
+            ],
+        }
+    ]
+
+    inputs = processor.apply_chat_template(
+        messages,
+        tokenize=True,
+        add_generation_prompt=True,
+        return_dict=True,
+        return_tensors="pt"
+    ).to(model.device)
+
+    with torch.no_grad():
+        generated_ids = model.generate(
+            **inputs,
+            max_new_tokens=128
+        )
+
+    generated_ids_trimmed = [
+        out_ids[len(in_ids):]
+        for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
+    ]
+
+    output_text = processor.batch_decode(
+        generated_ids_trimmed,
+        skip_special_tokens=True,
+        clean_up_tokenization_spaces=False
+    )[0]
+
+    print(f"\n[{os.path.basename(img_path)}]")
+    print(output_text)
+
+    results.append({
+        "image": img_path,
+        "response": output_text
+    })
+
+# ===============================
+# 5. 保存结果（强烈推荐）
+# ===============================
+import json
+
+save_path = os.path.join(image_dir, "layout_reasoning_results.json")
+with open(save_path, "w", encoding="utf-8") as f:
+    json.dump(results, f, ensure_ascii=False, indent=2)
+
+print(f"\n推理完成，结果已保存至: {save_path}")
+
 
 
 import math
