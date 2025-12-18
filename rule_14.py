@@ -1,6 +1,43 @@
 import cv2
 import numpy as np
 from paddleocr import PaddleOCRVL
+model_path = "/home/wsw/jikaiyuan/stage2/code/code_2025_12_18/PaddleOCR-VL"
+# 目录下需要包含 pdmodel, pdiparams, infer_cfg.yml
+
+ocr = PaddleOCRVL(
+    vl_rec_model_dir = model_path,   # 这个目录必须包含 pdmodel, pdiparams, infer_cfg.yml
+    layout_detection_model_dir = "/home/wsw/jikaiyuan/stage2/code/code_2025_12_18/PaddleOCR-VL/PP-DocLayoutV2"
+)
+
+def _extract_text_blocks_from_ocr_(ocr_results):
+    """
+    从 OCR 结果中提取非 image 的文本块，返回 list[dict]，每个 dict 至少包含：
+    - block_content
+    - block_bbox = [x1, y1, x2, y2]
+    """
+    blocks = []
+    for r in ocr_results:
+        parsing_list = r.json["res"]["parsing_res_list"]
+        for block in parsing_list:
+            # if block.get("block_label") == "image":
+            #     continue
+            if not block.get("block_content", "").strip():
+                continue
+            blocks.append(block)
+    return blocks
+
+# ========= OCR 文本块 =========
+test_image = "/home/wsw/gyx/code_11.28/test_data/排布间距/20241212112442EECEB9747D62434FBDC1F1CA71BE7829 (1).jpg"
+img=cv2.imread(test_image)
+results = ocr.predict(img)
+blocks = _extract_text_blocks_from_ocr_(results)
+print(blocks)
+[{'block_label': 'paragraph_title', 'block_content': '00首经典老歌', 'block_bbox': [...], 'block_id': 0, 'block_order': 1}, {'block_label': 'text', 'block_content': '1.雾里看花', 'block_bbox': [...], 'block_id': 1, 'block_order': 2}, {'block_label': 'text', 'block_content': '2. 灰姑娘', 'block_bbox': [...], 'block_id': 2, 'block_order': 3}, {'block_label': 'text', 'block_content': '3. 下沙', 'block_bbox': [...], 'block_id': 3, 'block_order': 4}, {'block_label': 'text', 'block_content': '5.心雨', 'block_bbox': [...], 'block_id': 4, 'block_order': 5}, {'block_label': 'text', 'block_content': '7.外面的世界', 'block_bbox': [...], 'block_id': 5, 'block_order': 6}, {'block_label': 'text', 'block_content': '9. 安妮', 'block_bbox': [...], 'block_id': 6, 'block_order': 7}, {'block_label': 'text', 'block_content': '11.禁锢', 'block_bbox': [...], 'block_id': 7, 'block_order': 8}, {'block_label': 'text', 'block_content': '13.女人花', 'block_bbox': [...], 'block_id': 8, 'block_order': 9}, {'block_label': 'text', 'block_content': '15. 红豆', 'block_bbox': [...], 'block_id': 9, 'block_order': 10}, {'block_label': 'text', 'block_content': '4. 舞女泪', 'block_bbox': [...], 'block_id': 10, 'block_order': 11}, {'block_label': 'text', 'block_content': '6. 海阔天空', 'block_bbox': [...], 'block_id': 11, 'block_order': 12}, {'block_label': 'text', 'block_content': '8. 单身情歌', 'block_bbox': [...], 'block_id': 12, 'block_order': 13}, {'block_label': 'text', 'block_content': '10.心如刀割', 'block_bbox': [...], 'block_id': 13, 'block_order': 14}, {'block_label': 'text', 'block_content': '12. 大中国', 'block_bbox': [...], 'block_id': 14, 'block_order': 15}, {'block_label': 'text', 'block_content': '14.约定', 'block_bbox': [...], 'block_id': 15, 'block_order': 16}, {'block_label': 'text', 'block_content': '16. 恋曲1990', 'block_bbox': [...], 'block_id': 16, 'block_order': 17}, {'block_label': 'text', 'block_content': '听一听 >', 'block_bbox': [...], 'block_id': 17, 'block_order': 18}, {'block_label': 'text', 'block_content': '000', 'block_bbox': [...], 'block_id': 18, 'block_order': 19}]
+
+
+import cv2
+import numpy as np
+from paddleocr import PaddleOCRVL
 
 def _extract_text_blocks_from_ocr_(ocr_results):
     """
