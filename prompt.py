@@ -99,7 +99,6 @@ A professional advertisement must have a clear "Sense of Breath" (Negative Space
 - **Generous White Space:** Clear and deliberate separation between the headline, the hero subject, and the footer information.
 - **Defined Margins:** A "Safe Zone" (at least 10% of the canvas width/height) is kept clear around the edges to ensure visual stability.
 - **Structured Layout:** Elements follow a clear grid or intentional alignment that allows the design to "breathe" while maintaining a strong hierarchy.
-- **Cinematic Excellence:** Film stills or cinematic stills are always classified as NON-VIOLATION.
 
 **OUTPUT FORMAT:**
 Return a strictly valid JSON object:
