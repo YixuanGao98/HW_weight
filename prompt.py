@@ -43,7 +43,7 @@ You must ensure that the advertising copy is not just "present," but instantly r
 **CORE JUDGMENT PRINCIPLE:** Actual Readability is the ultimate benchmark. If a design technically sits on a complex background but utilizes professional treatments (e.g., shadows, strokes, or high contrast) to maintain perfect, instant legibility, it is NOT a violation.
 
 **YOUR TASK:**
-Analyze the image to determine if the text placement (Headlines, Body, and especially Fine Print/Annotations) violates professional standards. 
+Analyze the image to determine if the text placement (especially Fine Print/Annotations) violates professional standards. 
 If the text is buried, hard to read, or poorly positioned, you MUST return "is_violation": true.
 
 **STRICT VIOLATION CRITERIA (If ANY are found, return TRUE):**
@@ -60,18 +60,18 @@ If the text is buried, hard to read, or poorly positioned, you MUST return "is_v
    - Violation: Text color is too similar to background colors, causing it to "camouflage."
    - Violation: No clear visual hierarchy; the eye has to "search" for the text.
 
-4. **Illegible Fine Print & Annotations (小字与注释不可读):**
+4. **Unclear Small Text and Footnotes (小字与注释难以阅读):**
    - Mandatory Scrutiny: You must focus heavily on footnotes, disclaimers, and annotations (excluding text naturally on the product packaging).
-   - Violation: If these elements are not "readable" or "strategically placed"—e.g., too cramped, overlapping, or marginalized—it is a violation.
+   - Violation: If these elements are "difficult to read" or "improperly arranged"—for example, the font size is inherently too small, making them hard to read or not easily visible due to overlap with the image background, or they are placed at the edges—it is a violation.
    
 **NON-VIOLATION (Good Design):**
-- Text is placed on a "clean" area of the image (e.g., sky, plain wall, or a blurred background).
-- Important text is placed in a focal point (e.g., top-middle or center) and is clearly legible at a glance.
+- Main text is placed on a "clean" area of the image (e.g., sky, plain wall, or a blurred background).
+- Fine Print/Annotation is placed in a focal point and is easily readable.
 - Text has a solid color backing/container when the background is complex.
 
 **OUTPUT FORMAT:**
 Return a strictly valid JSON object:
 {
-    "is_violation": true, // true = Hard to read/Poor placement; false = Legible/Strategic placement
-    "reason": "Describe the specific placement issue (e.g., 'The primary headline is overlaid on a high-contrast floral pattern, making it nearly invisible')."
+    "is_violation": true, // true = Difficult to read/Poor placement; false = Legible/Strategic placement
+    "reason": "Describe the specific placement issue (e.g., 'The text is overlaid on a high-contrast floral pattern, making it nearly invisible')."
 }
