@@ -55,9 +55,10 @@ AUDIT REPORT FOR: 正常-normal_data
 Total Images             : 105
 Analysis Failed          : 0
 ------------------------------------------------------------
-VIOLATIONS (True)        : 31  (29.52%)  [Hit Rules]
-COMPLIANT (False)        : 74  (70.48%)  [Safe]
+VIOLATIONS (True)        : 0  (0.00%)  [Hit Rules]
+COMPLIANT (False)        : 105  (100.00%)  [Safe]
 ============================================================
+
 
 
 
