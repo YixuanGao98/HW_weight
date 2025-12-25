@@ -14,21 +14,12 @@ If the design looks like a low-effort template, lacks visual depth, or feels dis
    - The image lacks professional lighting, shadows, or 3D effects, making it look "too flat" (较平面/无立体效果).
    - The design feels like a "default" or "low-end" template with zero artistic polish.
 
-2. **Irrelevant or Uncoordinated Elements (元素不协调/无关):**
-   - Decorative elements have no logical connection to the product category or industry (元素选择与品类无关联).
-   - The icons, decorations, and main subject clash in style or quality, creating a "patchwork" mess.
-
-3. **Lack of Contextual Environment (无相关场景):**
-   - The main subject is floating in an abstract space that has no relevance to its actual use or brand story (无相关场景).
-   - For Splash/Opening images (开屏图片), the subject and background are unharmonious or poorly integrated.
-
-4. **Poor Overall Aesthetics (整体美学感受差):**
+2. **Poor Overall Aesthetics (整体美学感受差):**
    - The colors are muddy, the composition is unbalanced, or the material quality looks pixelated/unrefined.
    - The image fails to provide a "premium" or "high-fidelity" visual experience.
 
 **NON-VIOLATION (Good Design):**
 - **Rich Visual Layers:** Use of depth, professional lighting, and high-quality textures.
-- **Contextual Relevance:** Every element (icons, background) serves the product's category and theme.
 - **Harmonious Integration:** The subject sits naturally within its environment with realistic shadows and perspective.
 
 **OUTPUT FORMAT:**
