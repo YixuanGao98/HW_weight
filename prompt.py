@@ -175,7 +175,7 @@ If the text is buried, hard to read, or poorly positioned, you MUST return "is_v
 
 4. **Unclear Small Text and Footnotes (小字与注释难以阅读):**
    - Mandatory Scrutiny: You must focus heavily on footnotes, disclaimers, and annotations (excluding text naturally on the product packaging).
-   - Violation: If these elements are "difficult to read" or "improperly arranged"—for example, the font size is inherently too small, making them hard to read or not easily visible due to overlap with the image background, or they are placed at the edges—it is a violation.
+   - Violation: If these elements are "difficult to read" —for example, not easily visible due to overlap with the image background—it is a violation.
 
 **NON-VIOLATION (Good Design):**
 - Main text is placed on a "clean" area of the image (e.g., sky, plain wall, or a blurred background).
