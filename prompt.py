@@ -121,7 +121,6 @@ A professional advertisement must have a clear "Sense of Breath" (Negative Space
    - Visual Feel: The overall design feels "heavy" or "claustrophobic" because major modules lack sufficient negative space between them.
 
 2. **Edge Tension (贴边风险):**
-   - Crucial text or logos are placed too close to the edges of the canvas (insufficient margins), making the layout feel unstable or amateurish.
    - Elements are "touching" or "tangent" to each other or the border without intentional overlapping.
 
 3. **Information Overload (信息堆砌):**
