@@ -1,4 +1,33 @@
-[Try #0] Failed to fetch sample 199. Exception: 1 image(s) remain unused (not consumed by placeholders)
+[
+  {
+    "id": "ad_audit_1",
+    "image": "精美度/True/c60066408_102_243101892_10_20250122112612.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nEvaluate the image for 'Exquisiteness' (精美度).\nIf the design looks like a low-effort template, or lacks visual depth, you MUST return \"is_violation\": true.\n\n**STRICT VIOLATION CRITERIA:**\n1. Simplistic & 'Flat' Design: Overly basic layout, generic icons, no professional lighting/shadows.\n2. Poor Overall Aesthetics: Muddy colors, unbalanced composition, pixelated/unrefined quality.\n\n**OUTPUT FORMAT:**\nReturn a strictly valid JSON object:\n{\"is_violation\": true, \"reason\": \"...\"}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"is_violation\": true, \"reason\": \"The design appears simplistic and uses a flat, generic layout with overly bright and unbalanced colors. The background features repetitive firework and cloud motifs that feel unrefined and lack visual depth. The product packaging is centrally placed but lacks professional lighting or shadow effects, giving it a low-effort template appearance.\"}"
+      }
+    ]
+  },
+  {
+    "id": "ad_audit_2",
+    "image": "精美度/True/IMG_3851.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nEvaluate the image for 'Exquisiteness' (精美度).\nIf the design looks like a low-effort template, or lacks visual depth, you MUST return \"is_violation\": true.\n\n**STRICT VIOLATION CRITERIA:**\n1. Simplistic & 'Flat' Design: Overly basic layout, generic icons, no professional lighting/shadows.\n2. Poor Overall Aesthetics: Muddy colors, unbalanced composition, pixelated/unrefined quality.\n\n**OUTPUT FORMAT:**\nReturn a strictly valid JSON object:\n{\"is_violation\": true, \"reason\": \"...\"}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"is_violation\": true, \"reason\": \"The design is overly simplistic and flat, featuring generic cartoon characters and icons without professional lighting or depth. The composition is cluttered with repetitive elements (e.g., multiple '地陪' labels) and lacks visual hierarchy. Colors are bright but unrefined, and the overall aesthetic feels like a low-effort template rather than a polished advertisement.\"}"
+      }
+    ]
+  },
+    [Try #0] Failed to fetch sample 199. Exception: 1 image(s) remain unused (not consumed by placeholders)
 [Try #0] Failed to fetch sample 2828. Exception: 1 image(s) remain unused (not consumed by placeholders)
 [Try #0] Failed to fetch sample 110. Exception: 1 image(s) remain unused (not consumed by placeholders)
 [Try #0] Failed to fetch sample 189. Exception: 1 image(s) remain unused (not consumed by placeholders)
