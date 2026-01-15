@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+(EngineCore_DP0 pid=2648197) (raylet) [2026-01-15 09:38:29,021 E 2650494 2650531] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2026-01-15_09-37-45_971338_2648197 is over 95% full, available space: 10.9289 GB; capacity: 876.137 GB. Object creation will fail if spilling is required.
+(EngineCore_DP0 pid=2648197) INFO 01-15 09:38:30 [ray_utils.py:240] Waiting for creating a placement group of specs for 30 seconds. specs=[{'node:10.90.86.174': 0.001, 'GPU': 1.0}, {'GPU': 1.0}, {'GPU': 1.0}, {'GPU': 1.0}]. Check `ray status` and `ray list nodes` to see if you have enough resources, and make sure the IP addresses used by ray cluster are the same as VLLM_HOST_IP environment variable specified in each node if you are running on a multi-node.#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import time
 import os
