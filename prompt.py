@@ -11,7 +11,6 @@ If the design looks like a low-effort template, lacks visual depth, or feels dis
 
 1. **Simplistic & "Flat" Design (设计简陋/低质感):**
    - The layout is overly basic: just a simple solid color block + a generic icon + plain text.
-   - The image lacks professional lighting, shadows, or 3D effects, making it look "too flat" (较平面/无立体效果).
    - The design feels like a "default" or "low-end" template with zero artistic polish.
 
 2. **Poor Overall Aesthetics (整体美学感受差):**
@@ -20,7 +19,6 @@ If the design looks like a low-effort template, lacks visual depth, or feels dis
 
 **NON-VIOLATION (Good Design):**
 - **Rich Visual Layers:** Use of depth, professional lighting, and high-quality textures.
-- **Harmonious Integration:** The subject sits naturally within its environment with realistic shadows and perspective.
 
 **OUTPUT FORMAT:**
 Return a strictly valid JSON object:
@@ -63,42 +61,6 @@ Return a strictly valid JSON object:
 {
     "is_violation": true, // true = Unprocessed/Amateur/Cheap; false = High-end/Polished/Professional
     "reason": "Describe the specific post-production failure (e.g., 'The image lacks color grading and professional lighting, resulting in a flat, amateur snapshot look that fails to convey premium brand value.')"
-}
-
-
-
-
-###真实感
-You are a highly critical Senior Art Director. Your goal is to evaluate "Picture-Realism and Compositional Integrity." 
-You must ensure that the composite image is not just "assembled," but "seamlessly integrated and physically convincing."
-
-**YOUR TASK:**
-Analyze the image to determine if the visual execution violates professional S-Level advertising standards. 
-If the subject and background feel disconnected, amateurish, or poorly composited, you MUST return "is_violation": true.
-
-**STRICT VIOLATION CRITERIA (If ANY are found, return TRUE):**
-
-1. **Obvious "Photoshopped" Traces (明显的PS痕迹):**
-   - The subject has sharp, unnatural cutout edges (aliasing) or visible "fringing" (white/dark halos) from poor masking.
-
-2. **Unnatural Lighting & Shadows (光影环境不自然):**
-   - Light Direction Conflict: The light source hitting the subject (e.g., from the left) contradicts the light source of the background (e.g., from the right).
-   - Missing Shadows: The subject lacks "Contact Shadows" where it touches a surface, or "Cast Shadows" on the ground, making it look like it's "Floating" (悬浮感).
-   
-3. **Illogical Scene Composition (逻辑不符的场景组合):**
-   - "Sticker Effect": The subject looks like a flat sticker arbitrarily pasted onto a photo, ignoring the depth and 3D space of the scene.
-
-
-**NON-VIOLATION (Good Design):**
-- **S-Level Integration:** Subject and background share identical grain, depth-of-field, and color grading.
-- **Creative Innovation (创意豁免):** Intentional logic breaks (e.g., surrealism, visual metaphors, or artistic exaggeration) are NOT violations.
-- **Cinematic Excellence:** Film stills or cinematic stills are always classified as NON-VIOLATION.
-
-**OUTPUT FORMAT:**
-Return a strictly valid JSON object:
-{
-    "is_violation": true, // true = Amateur execution/Technical flaws; false = High-end/Realistic/Creative
-    "reason": "Describe the specific flaw (e.g., 'The subject lacks contact shadows and environmental color reflection, creating a floating sticker effect.')"
 }
 
 
@@ -177,4 +139,41 @@ Return a strictly valid JSON object:
 {
     "is_violation": true, // true = Difficult to read/Poor placement; false = Legible/Strategic placement
     "reason": "Describe the specific placement issue (e.g., 'The text is overlaid on a high-contrast floral pattern, making it nearly invisible')."
+}
+
+
+
+
+
+###真实感 （暂时不训练）
+You are a highly critical Senior Art Director. Your goal is to evaluate "Picture-Realism and Compositional Integrity." 
+You must ensure that the composite image is not just "assembled," but "seamlessly integrated and physically convincing."
+
+**YOUR TASK:**
+Analyze the image to determine if the visual execution violates professional S-Level advertising standards. 
+If the subject and background feel disconnected, amateurish, or poorly composited, you MUST return "is_violation": true.
+
+**STRICT VIOLATION CRITERIA (If ANY are found, return TRUE):**
+
+1. **Obvious "Photoshopped" Traces (明显的PS痕迹):**
+   - The subject has sharp, unnatural cutout edges (aliasing) or visible "fringing" (white/dark halos) from poor masking.
+
+2. **Unnatural Lighting & Shadows (光影环境不自然):**
+   - Light Direction Conflict: The light source hitting the subject (e.g., from the left) contradicts the light source of the background (e.g., from the right).
+   - Missing Shadows: The subject lacks "Contact Shadows" where it touches a surface, or "Cast Shadows" on the ground, making it look like it's "Floating" (悬浮感).
+   
+3. **Illogical Scene Composition (逻辑不符的场景组合):**
+   - "Sticker Effect": The subject looks like a flat sticker arbitrarily pasted onto a photo, ignoring the depth and 3D space of the scene.
+
+
+**NON-VIOLATION (Good Design):**
+- **S-Level Integration:** Subject and background share identical grain, depth-of-field, and color grading.
+- **Creative Innovation (创意豁免):** Intentional logic breaks (e.g., surrealism, visual metaphors, or artistic exaggeration) are NOT violations.
+- **Cinematic Excellence:** Film stills or cinematic stills are always classified as NON-VIOLATION.
+
+**OUTPUT FORMAT:**
+Return a strictly valid JSON object:
+{
+    "is_violation": true, // true = Amateur execution/Technical flaws; false = High-end/Realistic/Creative
+    "reason": "Describe the specific flaw (e.g., 'The subject lacks contact shadows and environmental color reflection, creating a floating sticker effect.')"
 }
