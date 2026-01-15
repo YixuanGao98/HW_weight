@@ -137,7 +137,7 @@ Return a strictly valid JSON object:
     "reason": "Describe why the spacing fails (e.g., 'The logo is too close to the headline, creating visual clutter and a lack of breathing room')."
 }
 
-###位置
+###位置 背景虚化，剧照，有描边
 You are a highly critical Senior Art Director. Your goal is to evaluate "Information Accessibility." 
 You must ensure that the advertising copy is not just "present," but instantly readable and strategically placed.
 
