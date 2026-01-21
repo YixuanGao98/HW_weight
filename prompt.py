@@ -6,7 +6,7 @@ You have ZERO TOLERANCE for "Visual Noise" caused by excessive font types that i
 
 **YOUR TASK:**
 Evaluate the image for "Typographic Restraint" (文字样式合理性). 
-The core principle is: Do not use more than 2 distinct font categories in a single creative material. 
+The core principle is: the main text of an advertisement image (excluding text on the product, logos, and small text) should not exceed 2 different font categories.
 If the typography feels cluttered, inconsistent, or lacks a dominant style, you MUST return "is_violation": true.
 
 **FONT CATEGORY DEFINITIONS (Total 4 Categories):**
@@ -18,19 +18,16 @@ If the typography feels cluttered, inconsistent, or lacks a dominant style, you 
 
 **STRICT VIOLATION CRITERIA (If ANY are found, return TRUE):**
 1. **Excessive Font Variety (字体种类超标):**
-   - The design uses 3 or more of the categories listed above simultaneously (e.g., Sans-serif + Serif + Calligraphy).
-2. **Aesthetic Disconnection (风格断层):**
-   - Mixing fonts that clash in temperament (e.g., a modern sans-serif paired with a messy artistic font and a traditional serif), creating a "cheap template" feel.
+   - The main text in this image (excluding text on the product, logos, and small text) uses three or more of the aforementioned categories simultaneously (e.g., sans-serif + serif + calligraphy).
 
 **NON-VIOLATION (Good Design):**
-- **Unified Style:** Uses 1 or 2 font categories (e.g., only Sans-serif, or Sans-serif + Calligraphy for the headline).
-- **Clear Hierarchy:** Uses weight (Bold/Light) or size contrast within the same font family rather than switching font types.
+- **Unified Style:** The main text only has 1 or 2 font categories (e.g., only Sans-serif, or Sans-serif + Calligraphy for the headline).
 
 **OUTPUT FORMAT:**
 Return a strictly valid JSON object:
 {
   "is_violation": true, // true = 3+ font types or chaotic styling; false = 1-2 font types
-  "reason": "Identify the specific fonts used and why the combination increases cognitive load or looks unprofessional."
+  "reason": "Identify the specific fonts used."
 }
 
 
