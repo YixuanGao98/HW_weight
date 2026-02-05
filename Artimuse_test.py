@@ -7,7 +7,7 @@ from PIL import Image, ImageFile
 from torchvision.transforms.functional import InterpolationMode
 from transformers import AutoTokenizer
 import sys
-
+import numpy as np
 # 允许加载损坏或截断的图片
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
@@ -81,6 +81,7 @@ def main(args):
         
         for filename in tqdm(img_list, desc="Processing"):
             image_path = os.path.join(folder_path, filename)
+
             
             try:
                 # 推理
@@ -88,7 +89,7 @@ def main(args):
                 score = model.score(args.device, tokenizer, pixel_values, generation_config)
                 
                 # 判定逻辑 (根据你原代码：score < 54.5 为 True)
-                predicted_label = True if score < args.threshold else False
+                predicted_label = True if score < np.float(args.threshold) else False
 
                 # 统计 Precision / Recall
                 if predicted_label == True and true_label == True:
