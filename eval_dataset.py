@@ -38,10 +38,12 @@ def get_model_params(model):
 
 def main(args):
     # Setup paths
-    model_path = os.path.join("/mnt/DATA2025/gyx/checkpoint", args.model_name)
+    model_path = os.path.join("/home/wsw/model", args.model_name)
     results_dir = os.path.join("results", "dataset_results")
-    input_json_path = f"/home/gyx/huawei_ad/stage2/ArtiMuse-master/hw_test.json"
-    test_image_path = f"/mnt/sda/gyx/huawei_ad/stage2/精美度/test"
+    # input_json_path = f"/home/wsw/gyx/code_11.28/hw_test.json"
+    # test_image_path = f"/home/wsw/gyx/code_1.15_2/数量满足要求"
+    input_json_path = f"/home/wsw/gyx/code_11.28/ArtiMuse-master/hw_test_清晰.json"
+    test_image_path = f"/home/wsw/gyx/code_11.28"
     os.makedirs(results_dir, exist_ok=True)
     output_path = os.path.join(results_dir, f"{args.dataset}_{args.model_name}.json")
 
@@ -74,6 +76,7 @@ def main(args):
     tp = fp = tn = fn = 0  # Initialize counts for precision and recall
 
     for item in tqdm(test_data, desc=f"Evaluating {args.dataset}"):
+        print(item)
         image_name = item['image']
         true_label = item['gt_score']  # True label (True or False)
         image_path = os.path.join(test_image_path, image_name)
@@ -85,9 +88,10 @@ def main(args):
         pixel_values = load_image(image_path).to(torch.bfloat16).to(args.device)
 
         score = model.score(args.device, tokenizer, pixel_values, generation_config)
+        print(score)
         
         # Prediction based on score threshold
-        predicted_label = True if score < 54 else False
+        predicted_label = True if score < 54.5 else False #精美都53
 
         # Calculate precision and recall
         if predicted_label == True and true_label == True:
@@ -120,7 +124,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_name", type=str, default="ArtiMuse_AVA", help="Name of the model (must exist in checkpoints/)")
+    parser.add_argument("--model_name", type=str, default="ArtMuse_AVA", help="Name of the model (must exist in checkpoints/)")
     parser.add_argument("--dataset", type=str, default="AVA", help="AVA | TAD66K | PARA | FLICKR-AES")
     parser.add_argument("--device", type=str, default="cuda:0", help="CUDA device number")
     args = parser.parse_args()
