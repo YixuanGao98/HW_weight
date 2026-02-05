@@ -88,7 +88,7 @@ def main(args):
                 score = model.score(args.device, tokenizer, pixel_values, generation_config)
                 
                 # 判定逻辑 (根据你原代码：score < 54.5 为 True)
-                predicted_label = True if score < 54.5 else False
+                predicted_label = True if score < args.threshold else False
 
                 # 统计 Precision / Recall
                 if predicted_label == True and true_label == True:
@@ -127,6 +127,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_name", type=str, default="ArtMuse_AVA")
     parser.add_argument("--device", type=str, default="cuda:0")
+    parser.add_argument("--threshold", type=str, default="53")
     args = parser.parse_args()
 
     main(args)
