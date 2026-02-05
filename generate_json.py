@@ -9,7 +9,7 @@ def generate_json(true_dir, false_dir, output_file):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp')):
             # 保留原始中文文件名，确保JSON能正确存储
             result.append({
-                "filename": 'True/'+filename,  # 直接使用中文文件名
+                "image": '清晰度-splash_clarity/'+filename,  # 直接使用中文文件名
                 "gt_score": True
             })
     
@@ -17,7 +17,7 @@ def generate_json(true_dir, false_dir, output_file):
     for filename in os.listdir(false_dir):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp')):
             result.append({
-                "filename": 'False/'+filename,  # 直接使用中文文件名
+                "image": '正常-normal_data/'+filename,  # 直接使用中文文件名
                 "gt_score": False
             })
     
@@ -26,4 +26,4 @@ def generate_json(true_dir, false_dir, output_file):
         json.dump(result, f, indent=4, ensure_ascii=False)  # ensure_ascii=False保留中文
 
 # 使用示例
-generate_json('/mnt/sda/gyx/huawei_ad/stage2/精美度/test/True', '/mnt/sda/gyx/huawei_ad/stage2/精美度/test/False', 'hw_test.json')
+generate_json('/home/wsw/gyx/code_11.28/清晰度-splash_clarity', '/home/wsw/gyx/code_11.28/正常-normal_data', 'hw_test_清晰.json')
